@@ -32,6 +32,7 @@ internal class Component {
         store.dispatch(action: IncrementAction())
         store.dispatch(action: IncrementAction())
         print(store.state.count)
+        store.dispatch(action: SetCounterAction(count: 3, setBy: "admin"))
         store.dispatch(action: SetCounterAction(count: 0, setBy: "admin"))
         print(store.state.count)
     }

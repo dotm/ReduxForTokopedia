@@ -19,4 +19,20 @@ internal protocol DataStore {
     
     //Public function used to dispatch action from other modules
     func dispatch(action: DataStoreAction)
+    
+    var middlewares: [Middleware] {get}
+    
+    func applyMiddlewares(with action: DataStoreAction) -> DataStoreAction?
+}
+
+extension DataStore {
+    func applyMiddlewares(with action: DataStoreAction) -> DataStoreAction? {
+        var nullableAction = action as? Action
+        for middleware in middlewares {
+            guard let resultAction = middleware.apply(with: nullableAction) as? DataStoreAction else {break}
+            nullableAction = resultAction as? Action
+        }
+        guard let resultAction = nullableAction as? DataStoreAction? else {return nil}
+        return resultAction
+    }
 }

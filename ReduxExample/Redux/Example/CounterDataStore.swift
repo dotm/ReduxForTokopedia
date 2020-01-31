@@ -21,9 +21,17 @@ public class CounterDataStore: DataStore {
     private var mutableState = CounterState(count: 0, lastChangedBy: "init")
     
     //Public function used to dispatch action from other modules
+    //Do NOT change this function
     public func dispatch(action: CounterAction) {
+        //Apply middlewares before mutating state
+        guard let action = applyMiddlewares(with: action) else { return }
         mutateState(action: action)
     }
+    
+    internal var middlewares: [Middleware] = [
+        //LoggingMiddleware(),
+        AllowSetToZeroOnly()
+    ]
     
     //MARK: Custom Store Functions
     //You don't have to implement any extra functions if you don't need to
