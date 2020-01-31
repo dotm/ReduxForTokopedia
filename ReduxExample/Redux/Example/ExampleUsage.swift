@@ -6,7 +6,6 @@
 //  Copyright © 2020 Tokopedia. All rights reserved.
 //
 
-import Foundation
 import RxCocoa
 import RxSwift
 

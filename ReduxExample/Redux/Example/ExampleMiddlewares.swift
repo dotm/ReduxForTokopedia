@@ -8,6 +8,11 @@
 
 import Foundation
 
+// To stop the propagation of action
+// (stopping it from mutating the data store's state),
+// return nil from a middleware
+
+///Example Redux middleware that can be used by any action
 internal struct LoggingMiddleware: Middleware {
     func apply<Action>(with action: Action?) -> Action? {
         guard let action = action else {return nil}
@@ -16,6 +21,7 @@ internal struct LoggingMiddleware: Middleware {
     }
 }
 
+///Example Redux middleware that can be used by a specific action
 internal struct AllowSetToZeroOnly: Middleware {
     func apply(with action: Action?) -> Action? {
         guard let specificAction = convertType(of: action, to: CounterAction.self) else {return action}

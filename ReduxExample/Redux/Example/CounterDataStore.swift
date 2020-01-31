@@ -6,17 +6,16 @@
 //  Copyright © 2020 Tokopedia. All rights reserved.
 //
 
-import Foundation
-
 ///Example Redux data store
 public class CounterDataStore: DataStore {
     //See DataStore definition for explanation of each method and property
     
+    //The dispatch function is implemented in DataStore.swift
+    //Mutable state can only be modified through the data store's dispatch function
+    private var mutableState = CounterState(count: 0, lastChangedBy: "init")
     public var state: CounterState {  //read-only computed property
         return mutableState
     }
-    //Mutable state can only be modified through the data store's dispatch function
-    private var mutableState = CounterState(count: 0, lastChangedBy: "init")
     
     internal var middlewares: [Middleware] = [
         LoggingMiddleware(),

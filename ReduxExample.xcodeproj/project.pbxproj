@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		1FEAAEAF9AB073A9C70A6D87 /* Pods_ReduxExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FF1EEB6EA21811EDD007BB /* Pods_ReduxExampleTests.framework */; };
 		4B604BB13D6A70C4E36A8FCA /* Pods_ReduxExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577C95FA9A5309ED0FA437D6 /* Pods_ReduxExample.framework */; };
+		E58C460223E43F22002EF05E /* README_First.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460123E43F22002EF05E /* README_First.swift */; };
+		E58C460423E4407E002EF05E /* TemplateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460323E4407E002EF05E /* TemplateAction.swift */; };
+		E58C460623E4419B002EF05E /* README_Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460523E4419B002EF05E /* README_Template.swift */; };
+		E58C460823E4428B002EF05E /* TemplateState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460723E4428B002EF05E /* TemplateState.swift */; };
+		E58C460A23E444B1002EF05E /* TemplateDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460923E444B1002EF05E /* TemplateDataStore.swift */; };
+		E58C460C23E4474C002EF05E /* TemplateMiddlewares.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460B23E4474C002EF05E /* TemplateMiddlewares.swift */; };
 		E5E5463023E3F71D00286C95 /* ReduxState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5462F23E3F71D00286C95 /* ReduxState.swift */; };
 		E5E5463223E3F74800286C95 /* ExampleUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463123E3F74800286C95 /* ExampleUsage.swift */; };
 		E5E5463423E3F7A700286C95 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463323E3F7A700286C95 /* DataStore.swift */; };
@@ -43,6 +49,12 @@
 		512F8D747857752805A4D443 /* Pods-ReduxExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReduxExampleTests/Pods-ReduxExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		577C95FA9A5309ED0FA437D6 /* Pods_ReduxExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FF1EEB6EA21811EDD007BB /* Pods_ReduxExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E58C460123E43F22002EF05E /* README_First.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = README_First.swift; sourceTree = "<group>"; };
+		E58C460323E4407E002EF05E /* TemplateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateAction.swift; sourceTree = "<group>"; };
+		E58C460523E4419B002EF05E /* README_Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = README_Template.swift; sourceTree = "<group>"; };
+		E58C460723E4428B002EF05E /* TemplateState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateState.swift; sourceTree = "<group>"; };
+		E58C460923E444B1002EF05E /* TemplateDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDataStore.swift; sourceTree = "<group>"; };
+		E58C460B23E4474C002EF05E /* TemplateMiddlewares.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateMiddlewares.swift; sourceTree = "<group>"; };
 		E5E5462F23E3F71D00286C95 /* ReduxState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxState.swift; sourceTree = "<group>"; };
 		E5E5463123E3F74800286C95 /* ExampleUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUsage.swift; sourceTree = "<group>"; };
 		E5E5463323E3F7A700286C95 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
@@ -169,6 +181,7 @@
 		E5F0CACD23E2C2F4004738D3 /* Redux */ = {
 			isa = PBXGroup;
 			children = (
+				E58C460123E43F22002EF05E /* README_First.swift */,
 				E5F0CAD223E2C33B004738D3 /* Example */,
 				E5F0CAD123E2C32F004738D3 /* Template */,
 				E5F0CAD023E2C325004738D3 /* Core */,
@@ -190,6 +203,11 @@
 		E5F0CAD123E2C32F004738D3 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				E58C460723E4428B002EF05E /* TemplateState.swift */,
+				E58C460323E4407E002EF05E /* TemplateAction.swift */,
+				E58C460923E444B1002EF05E /* TemplateDataStore.swift */,
+				E58C460B23E4474C002EF05E /* TemplateMiddlewares.swift */,
+				E58C460523E4419B002EF05E /* README_Template.swift */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -382,17 +400,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5F0CAAA23E2A7E2004738D3 /* AppDelegate.swift in Sources */,
+				E58C460223E43F22002EF05E /* README_First.swift in Sources */,
 				E5F0CAAC23E2A7E2004738D3 /* SceneDelegate.swift in Sources */,
+				E58C460423E4407E002EF05E /* TemplateAction.swift in Sources */,
 				E5E5463423E3F7A700286C95 /* DataStore.swift in Sources */,
+				E58C460C23E4474C002EF05E /* TemplateMiddlewares.swift in Sources */,
 				E5E5463023E3F71D00286C95 /* ReduxState.swift in Sources */,
 				E5E5463823E3F82100286C95 /* CounterState.swift in Sources */,
 				E5F0CAD623E2C386004738D3 /* CounterAction.swift in Sources */,
 				E5F0CACF23E2C305004738D3 /* Action.swift in Sources */,
 				E5F0CAAE23E2A7E2004738D3 /* ContentView.swift in Sources */,
+				E58C460623E4419B002EF05E /* README_Template.swift in Sources */,
+				E58C460823E4428B002EF05E /* TemplateState.swift in Sources */,
 				E5E5463E23E4034200286C95 /* ExampleMiddlewares.swift in Sources */,
 				E5E5463C23E4032200286C95 /* Middleware.swift in Sources */,
 				E5E5463223E3F74800286C95 /* ExampleUsage.swift in Sources */,
 				E5E5463623E3F7D400286C95 /* CounterDataStore.swift in Sources */,
+				E58C460A23E444B1002EF05E /* TemplateDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

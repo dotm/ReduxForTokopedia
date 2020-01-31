@@ -7,7 +7,7 @@
 //
 
 ///Example Redux Action
-public enum CounterAction: Action {
+public enum CounterAction: Action {  //made public to be accessible from other modules
     case incrementCount
     case setCount(count: Int, setBy: String)
 }
