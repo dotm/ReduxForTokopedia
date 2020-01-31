@@ -9,7 +9,7 @@
 //MARK: Action Protocol
 /// Redux action used to modify a store's state object.
 public protocol Action {
-    ///Type name must be a hardcoded constant and must be unique across app (prefix it with your module or data store name)
+    ///Type name is a hardcoded constant used for debugging purposes because reflection is bad for performance
     var type: String { get /*read-only constant*/ }
     
     //MARK:Data

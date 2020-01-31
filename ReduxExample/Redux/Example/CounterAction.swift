@@ -13,7 +13,7 @@ public protocol CounterAction: Action { }
 ///Example Redux action that uses no data and metadata
 public struct IncrementAction: CounterAction {
     //read-only constant that should never be set from init
-    public let type: String = "ModuleName.Increment"
+    public let type: String = "Counter.Increment"
     
     //MARK:Data
     //The data that will be used to modify a store's state object.
@@ -28,7 +28,7 @@ public struct IncrementAction: CounterAction {
 ///Example Redux action that uses some data and metadata
 public struct SetCounterAction: CounterAction {
     //read-only constant that should never be set from init
-    public let type: String = "ModuleName.SetCounter"
+    public let type: String = "Counter.SetCounter"
     
     //MARK:Data
     //The data that will be used to modify a store's state object.
