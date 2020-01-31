@@ -10,6 +10,8 @@ import Foundation
 
 ///Example Redux state object
 public class CounterState {
+    //State must be wrapped with property wrapper
+    //  so that it can be accessed as observable
     @ReduxState public var count: Int
     @ReduxState public var lastChangedBy: String
     

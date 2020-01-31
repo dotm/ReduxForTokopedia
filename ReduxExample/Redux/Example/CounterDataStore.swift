@@ -10,15 +10,12 @@ import Foundation
 
 ///Example Redux data store
 public class CounterDataStore: DataStore {
-    //State should not be updated from outside the store
-    //and it must not be changed directly from inside or outside (e.g. state = newState)
-    //it could only be updated through dispatch(action) from inside the store
-    public var state: CounterState {
-        //read-only computed property
+    //See DataStore definition for explanation of each method and property
+    
+    public var state: CounterState {  //read-only computed property
         return mutableState
     }
-    
-    //Mutable state can only be modified from mutator
+    //Mutable state can only be modified through the data store's dispatch function
     private var mutableState = CounterState(count: 0, lastChangedBy: "init")
     
     internal var middlewares: [Middleware] = [
@@ -41,9 +38,8 @@ public class CounterDataStore: DataStore {
 //Do NOT do anything here other than updating the mutable state
 //Any other operation must be done from middleware
 extension CounterDataStore {
-    //MARK:Main Mutator
+    //MARK:Entry-Point for Mutators
     internal func mutateState(action: CounterAction) {
-        action.test()
         switch action {
         case let .setCount(count, setBy): setCounterActionMutator(count: count, setBy: setBy)
         case .incrementCount: incrementActionMutator()

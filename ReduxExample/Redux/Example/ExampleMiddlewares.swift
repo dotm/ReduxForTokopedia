@@ -9,8 +9,7 @@
 import Foundation
 
 internal struct LoggingMiddleware: Middleware {
-    internal var type = "LoggingMiddleware"
-    internal func apply(with action: Action?) -> Action? {
+    func apply<Action>(with action: Action?) -> Action? {
         guard let action = action else {return nil}
         print(Date(), action)
         return action
@@ -18,20 +17,18 @@ internal struct LoggingMiddleware: Middleware {
 }
 
 internal struct AllowSetToZeroOnly: Middleware {
-    internal var type: String = "AllowSetToZeroOnly"
-    
     func apply(with action: Action?) -> Action? {
-        guard let actionNonOptional = action else {return nil}
-        guard let counterAction = actionNonOptional as? CounterAction else {
-            fatalError("should only be used with CounterAction")
-        }
-        guard case .setCount(let count, _) = counterAction else {return counterAction}
+        guard let specificAction = convertType(of: action, to: CounterAction.self) else {return action}
         
+        //convert to specific case of enum
+        guard case .setCount(let count, _) = specificAction else {return specificAction}
+
+        //MARK: Middleware implementation
         if count == 0 {
-            return counterAction
+            return specificAction
         }else{
             print("can only set to 0")
-            return nil
+            return nil //stop action propagation
         }
     }
 }
