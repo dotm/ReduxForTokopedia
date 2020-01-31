@@ -20,12 +20,23 @@ internal protocol DataStore {
     //Public function used to dispatch action from other modules
     func dispatch(action: DataStoreAction)
     
+    func mutateState(action: DataStoreAction)
+    
     var middlewares: [Middleware] {get}
     
     func applyMiddlewares(with action: DataStoreAction) -> DataStoreAction?
 }
 
 extension DataStore {
+    //Public function used to dispatch action from other modules
+    //Do NOT change this function
+    public func dispatch(action: DataStoreAction){
+        //Apply middlewares before mutating state
+        guard let action = applyMiddlewares(with: action) else { return }
+        
+        mutateState(action: action)
+    }
+    
     func applyMiddlewares(with action: DataStoreAction) -> DataStoreAction? {
         var nullableAction = action as? Action
         for middleware in middlewares {

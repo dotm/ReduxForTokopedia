@@ -14,19 +14,12 @@ public class CounterDataStore: DataStore {
     //and it must not be changed directly from inside or outside (e.g. state = newState)
     //it could only be updated through dispatch(action) from inside the store
     public var state: CounterState {
+        //read-only computed property
         return mutableState
     }
     
     //Mutable state can only be modified from mutator
     private var mutableState = CounterState(count: 0, lastChangedBy: "init")
-    
-    //Public function used to dispatch action from other modules
-    //Do NOT change this function
-    public func dispatch(action: CounterAction) {
-        //Apply middlewares before mutating state
-        guard let action = applyMiddlewares(with: action) else { return }
-        mutateState(action: action)
-    }
     
     internal var middlewares: [Middleware] = [
         //LoggingMiddleware(),
@@ -49,7 +42,7 @@ public class CounterDataStore: DataStore {
 //Any other operation must be done from middleware
 extension CounterDataStore {
     //MARK:Main Mutator
-    private func mutateState(action: CounterAction) {
+    internal func mutateState(action: CounterAction) {
         switch action {
         case let action as SetCounterAction: setCounterActionMutator(action: action)
         //In the above line, we type cast CounterAction to SetCounterAction
