@@ -1,3 +1,3 @@
-# See ReduxExample/Redux/README!
+# See ReduxExample/Redux/README
 
-I write the readme in a swift file so that it can be viewed from XCode.
+I write the README in a swift file so that it can be viewed from XCode.
