@@ -16,8 +16,11 @@ import Foundation
 internal struct LoggingMiddleware: Middleware {
     func apply<Action>(with action: Action?) -> Action? {
         guard let action = action else {return nil}
+        
+        //MARK: Middleware implementation
         print(Date(), action)
-        return action
+        
+        return action //or return nil to stop action propagation
     }
 }
 
