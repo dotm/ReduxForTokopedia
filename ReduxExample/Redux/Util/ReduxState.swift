@@ -12,7 +12,7 @@ import RxSwift
 
 @propertyWrapper
 public struct ReduxState<Type: Equatable> {
-    private let relay: BehaviorRelay<Type> //use behavior relay or publish subject?
+    private let relay: BehaviorRelay<Type> //use behavior relay or publish subject???
     private let observable: Observable<Type>
     
     //accessible through: state.value
@@ -22,7 +22,7 @@ public struct ReduxState<Type: Equatable> {
     }
     
     //accessible through: state.$value
-    public var projectedValue: (observable: Observable<Type>, distinctObservable: Observable<Type>, currentValue: Type) {
+    public var projectedValue: (observable: Observable<Type>, distinctObservable: Observable<Type>, currentValue: Type) { //observable or asObservable???
         return (observable, observable.distinctUntilChanged(), relay.value)
     }
     

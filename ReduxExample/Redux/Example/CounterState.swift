@@ -9,7 +9,7 @@
 import Foundation
 
 ///Example Redux state object
-public class CounterState { //use struct or class
+public class CounterState {
     @ReduxState public var count: Int
     @ReduxState public var lastChangedBy: String
     

@@ -28,12 +28,12 @@ internal class Component {
         //Can't set state directly like below
         //  store.state = CounterState(count: 0, lastChangedBy: "tes")
         //Use dispatch instead:
-        store.dispatch(action: IncrementAction())
-        store.dispatch(action: IncrementAction())
-        store.dispatch(action: IncrementAction())
+        store.dispatch(action: .incrementCount)
+        store.dispatch(action: .incrementCount)
+        store.dispatch(action: .incrementCount)
         print(store.state.count)
-        store.dispatch(action: SetCounterAction(count: 3, setBy: "admin"))
-        store.dispatch(action: SetCounterAction(count: 0, setBy: "admin"))
+        store.dispatch(action: .setCount(count: 3, setBy: "admin"))
+        store.dispatch(action: .setCount(count: 0, setBy: "admin"))
         print(store.state.count)
     }
 }

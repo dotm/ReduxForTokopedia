@@ -22,7 +22,7 @@ public class CounterDataStore: DataStore {
     private var mutableState = CounterState(count: 0, lastChangedBy: "init")
     
     internal var middlewares: [Middleware] = [
-        //LoggingMiddleware(),
+        LoggingMiddleware(),
         AllowSetToZeroOnly()
     ]
     
@@ -43,30 +43,17 @@ public class CounterDataStore: DataStore {
 extension CounterDataStore {
     //MARK:Main Mutator
     internal func mutateState(action: CounterAction) {
+        action.test()
         switch action {
-        case let action as SetCounterAction: setCounterActionMutator(action: action)
-        //In the above line, we type cast CounterAction to SetCounterAction
-            
-        //Note that we can also inline the method like below
-        //  case let action as SetCounterAction:
-        //    return CounterState(count: Int(action.count), lastChangedBy: action.setBy)
-        //so that we don't have to define
-        //  private func setCounterActionMutator(action: SetCounterAction)
-        
-        case is IncrementAction: incrementActionMutator()
-        //We use `case is IncrementAction` in the line above
-        //because using `case let action as IncrementAction:` will cause warning
-        //because the action is not used in incrementActionMutator()
-        
-        default:
-            fatalError("Unhandled action: \(action.type)")
+        case let .setCount(count, setBy): setCounterActionMutator(count: count, setBy: setBy)
+        case .incrementCount: incrementActionMutator()
         }
     }
     
     //MARK:Per-Action Mutators
-    private func setCounterActionMutator(action: SetCounterAction) {
-        mutableState.count = Int(action.count)
-        mutableState.lastChangedBy = action.setBy
+    private func setCounterActionMutator(count: Int, setBy: String) {
+        mutableState.count = count
+        mutableState.lastChangedBy = setBy
     }
     
     private func incrementActionMutator() {

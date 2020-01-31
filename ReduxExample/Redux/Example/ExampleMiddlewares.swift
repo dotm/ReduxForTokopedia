@@ -12,7 +12,7 @@ internal struct LoggingMiddleware: Middleware {
     internal var type = "LoggingMiddleware"
     internal func apply(with action: Action?) -> Action? {
         guard let action = action else {return nil}
-        print(Date(), action.type)
+        print(Date(), action)
         return action
     }
 }
@@ -22,10 +22,13 @@ internal struct AllowSetToZeroOnly: Middleware {
     
     func apply(with action: Action?) -> Action? {
         guard let actionNonOptional = action else {return nil}
-        guard let setCounterAction = actionNonOptional as? SetCounterAction else {return actionNonOptional}
+        guard let counterAction = actionNonOptional as? CounterAction else {
+            fatalError("should only be used with CounterAction")
+        }
+        guard case .setCount(let count, _) = counterAction else {return counterAction}
         
-        if setCounterAction.count == 0 {
-            return setCounterAction
+        if count == 0 {
+            return counterAction
         }else{
             print("can only set to 0")
             return nil
