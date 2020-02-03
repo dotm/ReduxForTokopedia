@@ -6,13 +6,11 @@
 //  Copyright © 2020 Tokopedia. All rights reserved.
 //
 
-/* Copy the lines below to use template
+/* Copy the lines below to use template */
  
-public enum <#ModuleName#>Action: Action {  //made public to be accessible from other modules
-    //case example_action_without_argument
-    //case example_action_with_argument(associatedValue: Type, associatedValue: Type)
-    //case example_action_with_struct_as_argument(data: StructType)
-    //case example_action_with_dynamic_dictionary_as_argument(metadata: [String:AnyHashable])
-}
-
-*/
+//public enum <#ModuleName#>Action: Action {  //made public to be accessible from other modules
+//    //case example_action_without_argument
+//    //case example_action_with_argument(associatedValue: Type, associatedValue: Type)
+//    //case example_action_with_struct_as_argument(data: StructType)
+//    //case example_action_with_dynamic_dictionary_as_argument(metadata: [String:AnyHashable])
+//}

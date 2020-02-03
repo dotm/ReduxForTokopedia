@@ -9,6 +9,29 @@
 import RxCocoa
 import RxSwift
 
+/*
+ To use within production environment:
+ 
+ - initialize data store in topmost parent component and put it in a constant property
+ 
+    ```
+    class ShopViewController {
+        let store = ShopDataStore()
+    }
+    ```
+ 
+ - pass store to children of that parent so that the children can dispatch to the data store and subscribe to the data store's state
+ 
+    ```
+    class ShopViewController {
+        let store = ShopDataStore()
+        let childrenComponent: UIView = ChildrenComponent1(store: store)
+        let childrenComponent: UIViewController = ChildrenComponent2(store: store)
+    }
+    ```
+ 
+*/
+
 internal class Component {
     let disposeBag = DisposeBag()
     init() {
@@ -34,5 +57,26 @@ internal class Component {
         store.dispatch(action: .setCount(count: 3, setBy: "admin"))
         store.dispatch(action: .setCount(count: 0, setBy: "admin"))
         print(store.state.count)
+        
+        
+        print("testing nested state -------")
+        
+        store.state.$nestedMetadata.observable.subscribe(onNext: { (nestedMetadata) in
+            print( nestedMetadata,
+                "to be able to print this,",
+                "make nestedMetadata printable",
+                "by adding the CustomStringConvertible protocol"
+                )
+        }).disposed(by: disposeBag)
+        
+        store.state.nestedMetadata.$firstMetadata.observable.subscribe(onNext: { (firstMetadata) in
+            print(firstMetadata)
+        }).disposed(by: disposeBag)
+        
+        store.state.nestedMetadata.$secondMetadata.observable.subscribe(onNext: { (secondMetadata) in
+            print(secondMetadata)
+        }).disposed(by: disposeBag)
+        
+        store.dispatch(action: .changeSecondNestedMetadata) //should call second metadata only and not first metadata
     }
 }

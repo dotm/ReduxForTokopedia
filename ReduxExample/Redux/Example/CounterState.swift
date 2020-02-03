@@ -13,12 +13,30 @@ public class CounterState {
     //State must be made public to be accessible from other modules.
     @ReduxState public var count: Int
     @ReduxState public var lastChangedBy: String
+    @ReduxState public var nestedMetadata: NestedMetadata
     
     //You can generate this automatically
     //using the Init Generator in Tokopedia XCode helper
     //check https://github.com/tokopedia/xcode-helper
-    internal init(count: Int, lastChangedBy: String) {
+    internal init(count: Int, lastChangedBy: String, nestedMetadata: NestedMetadata) {
         self.count = count
         self.lastChangedBy = lastChangedBy
+        self.nestedMetadata = nestedMetadata
+    }
+}
+
+public class NestedMetadata: Equatable {
+    public static func == (lhs: NestedMetadata, rhs: NestedMetadata) -> Bool {
+        return
+            lhs.firstMetadata == rhs.firstMetadata &&
+            lhs.secondMetadata == rhs.secondMetadata
+    }
+    
+    @ReduxState public var firstMetadata: Int
+    @ReduxState public var secondMetadata: Int
+
+    public init(firstMetadata: Int, secondMetadata: Int) {
+        self.firstMetadata = firstMetadata
+        self.secondMetadata = secondMetadata
     }
 }
