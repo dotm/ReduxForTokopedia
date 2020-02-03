@@ -62,20 +62,16 @@ internal class Component {
         print("testing nested state -------")
         
 //        store.state.$nestedMetadata.observable.subscribe(onNext: { (nestedMetadata) in
-//            print( nestedMetadata,
-//                "to be able to print this,",
-//                "make nestedMetadata printable",
-//                "by adding the CustomStringConvertible protocol"
-//                )
+//            print("should be called when children properties is changed", nestedMetadata)
 //        }).disposed(by: disposeBag)
 //
 //        //test removing whole nestedMetadata first
 //        store.state.nestedMetadata.$firstMetadata.observable.subscribe(onNext: { (firstMetadata) in
-//            print(firstMetadata)
+//            print("should be called once", firstMetadata)
 //        }).disposed(by: disposeBag)
 //
 //        store.state.nestedMetadata.$secondMetadata.observable.subscribe(onNext: { (secondMetadata) in
-//            print("x",secondMetadata)
+//            print("should be called multiple times",secondMetadata)
 //        }).disposed(by: disposeBag)
         
         store.dispatch(action: .changeWholeNestedMetadata) //make sure that the subscription above still gets run even if the nested metadata is changed

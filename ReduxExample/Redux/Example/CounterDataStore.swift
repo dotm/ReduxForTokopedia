@@ -12,7 +12,7 @@ public class CounterDataStore: DataStore {
     
     //The dispatch function is implemented in DataStore.swift
     //Mutable state can only be modified through the data store's dispatch function
-    private var mutableState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
+    @ReduxState private var mutableState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
     public var state: CounterState {  //read-only computed property
         return mutableState
     }

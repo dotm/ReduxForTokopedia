@@ -7,7 +7,7 @@
 //
 
 ///Example Redux state object
-public class CounterState {
+public class CounterState: Equatable {
     //State must be wrapped with property wrapper
     //  so that it can be accessed as observable.
     //State must be made public to be accessible from other modules.
@@ -22,6 +22,10 @@ public class CounterState {
         self.count = count
         self.lastChangedBy = lastChangedBy
         self.nestedMetadata = nestedMetadata
+    }
+    
+    public static func == (lhs: CounterState, rhs: CounterState) -> Bool {
+        return lhs.count == rhs.count && lhs.lastChangedBy == rhs.lastChangedBy && lhs.nestedMetadata == rhs.nestedMetadata
     }
 }
 
