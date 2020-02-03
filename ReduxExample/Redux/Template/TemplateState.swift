@@ -31,17 +31,17 @@
 //}
 //
 //public class ExampleNestedState: Equatable { //nested state must conform to equatable
-//    public static func == (lhs: NestedMetadata, rhs: NestedMetadata) -> Bool {
-//        return
-//            lhs.firstProperty == rhs.firstProperty &&
-//            lhs.secondProperty == rhs.secondProperty
-//    }
-//
 //    @ReduxState public var firstProperty: Int
 //    @ReduxState public var secondProperty: Int
 //
 //    public init(firstProperty: Int, secondProperty: Int) {
 //        self.firstProperty = firstProperty
 //        self.secondProperty = secondProperty
+//    }
+//
+//    public static func == (lhs: NestedMetadata, rhs: NestedMetadata) -> Bool {
+//        return
+//            lhs.firstProperty == rhs.firstProperty &&
+//            lhs.secondProperty == rhs.secondProperty
 //    }
 //}

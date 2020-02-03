@@ -26,17 +26,17 @@ public class CounterState {
 }
 
 public class NestedMetadata: Equatable {
-    public static func == (lhs: NestedMetadata, rhs: NestedMetadata) -> Bool {
-        return
-            lhs.firstMetadata == rhs.firstMetadata &&
-            lhs.secondMetadata == rhs.secondMetadata
-    }
-    
     @ReduxState public var firstMetadata: Int
     @ReduxState public var secondMetadata: Int
 
     public init(firstMetadata: Int, secondMetadata: Int) {
         self.firstMetadata = firstMetadata
         self.secondMetadata = secondMetadata
+    }
+    
+    public static func == (lhs: NestedMetadata, rhs: NestedMetadata) -> Bool {
+        return
+            lhs.firstMetadata == rhs.firstMetadata &&
+            lhs.secondMetadata == rhs.secondMetadata
     }
 }
