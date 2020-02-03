@@ -43,6 +43,7 @@ extension CounterDataStore {
         case let .setCount(count, setBy): setCounterActionMutator(count: count, setBy: setBy)
         case .incrementCount: incrementActionMutator()
         case .changeSecondNestedMetadata: setSecondMetadataMutator()
+        case .changeWholeNestedMetadata: nestedMetadataMutator()
         }
     }
     
@@ -59,5 +60,9 @@ extension CounterDataStore {
     
     private func setSecondMetadataMutator(){
         mutableState.nestedMetadata.secondMetadata = 99
+    }
+    
+    private func nestedMetadataMutator(){
+        mutableState.nestedMetadata = NestedMetadata(firstMetadata: 2, secondMetadata: 2)
     }
 }
