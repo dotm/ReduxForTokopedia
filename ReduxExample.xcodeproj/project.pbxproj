@@ -118,14 +118,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E5E5462E23E3F6F400286C95 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				E5E5462F23E3F71D00286C95 /* ReduxState.swift */,
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
 		E5F0CA9D23E2A7E2004738D3 = {
 			isa = PBXGroup;
 			children = (
@@ -185,7 +177,6 @@
 				E5F0CAD223E2C33B004738D3 /* Example */,
 				E5F0CAD123E2C32F004738D3 /* Template */,
 				E5F0CAD023E2C325004738D3 /* Core */,
-				E5E5462E23E3F6F400286C95 /* Util */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -196,6 +187,7 @@
 				E5F0CACE23E2C305004738D3 /* Action.swift */,
 				E5E5463323E3F7A700286C95 /* DataStore.swift */,
 				E5E5463B23E4032200286C95 /* Middleware.swift */,
+				E5E5462F23E3F71D00286C95 /* ReduxState.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
