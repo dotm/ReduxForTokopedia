@@ -10,22 +10,24 @@ import RxCocoa
 import RxSwift
 
 ///Example Redux data store
-public class CounterDataStore: DataStore {
-    //See DataStore definition for explanation of each method and property
+public class CounterDataStore: DataStore, DataStoreInternalProtocol {
+    public typealias DataStoreState = CounterState
+    public typealias DataStoreAction = CounterAction
     
-    static var initialState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
-    
-    //Access this through DataStore.observeState.of(property: keypath)
-    internal var stateRelay = BehaviorRelay(value: CounterDataStore.initialState)
-    
-    //Mutable state can only be modified through the data store's dispatch function
-    private var mutableState = CounterDataStore.initialState
-    public var state: CounterState {  //read-only computed property accessed from other modules
-        return mutableState
+    public init(){  //made public to be accessible from other modules
+        let initialState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
+        stateRelay = BehaviorRelay(value: initialState)
+        mutableState = initialState
     }
     
-    //DO NOT IMPLEMENT the dispatch function.
-    //It has been implemented in a standardized way in DataStore.swift
+    //Access this through DataStore.observeState.of(property: keypath)
+    internal var stateRelay: BehaviorRelay<DataStoreState>
+    
+    //Mutable state can only be modified through the data store's dispatch function
+    private var mutableState: DataStoreState
+    public var state: DataStoreState {  //read-only computed property accessed from other modules
+        return mutableState
+    }
     
     //Add, remove, and comment out middlewares here
     internal var middlewares: [Middleware] = [
@@ -43,15 +45,15 @@ public class CounterDataStore: DataStore {
     }
 }
 
-
-//MARK:Mutators
-//Mutators must be in the same file as DataStore
-//  so that mutableState can be private
-
-//Functions used to update the data store's state
-//Do NOT do anything here other than updating the mutable state
-//Any other operation must be done from middleware
 extension CounterDataStore {
+    //MARK:Mutators
+    //Mutators must be in the same file as DataStore
+    //  so that mutableState can be private
+
+    //Functions used to update the data store's state
+    //Do NOT do anything here other than updating the mutable state
+    //Any other operation must be done from middleware
+    
     //MARK:Entry-Point for Mutators
     internal func mutateState(action: CounterAction) {
         switch action {

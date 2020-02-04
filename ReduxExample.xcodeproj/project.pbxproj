@@ -22,6 +22,8 @@
 		E5E5463823E3F82100286C95 /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463723E3F82100286C95 /* CounterState.swift */; };
 		E5E5463C23E4032200286C95 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463B23E4032200286C95 /* Middleware.swift */; };
 		E5E5463E23E4034200286C95 /* ExampleMiddlewares.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463D23E4034200286C95 /* ExampleMiddlewares.swift */; };
+		E5EBC25F23E98132004B3F22 /* DataStoreInternalProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBC25E23E98132004B3F22 /* DataStoreInternalProtocol.swift */; };
+		E5EBC26123E9828C004B3F22 /* ObservableType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBC26023E9828C004B3F22 /* ObservableType+Extensions.swift */; };
 		E5F0CAAA23E2A7E2004738D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F0CAA923E2A7E2004738D3 /* AppDelegate.swift */; };
 		E5F0CAAC23E2A7E2004738D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F0CAAB23E2A7E2004738D3 /* SceneDelegate.swift */; };
 		E5F0CAAE23E2A7E2004738D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F0CAAD23E2A7E2004738D3 /* ContentView.swift */; };
@@ -61,6 +63,8 @@
 		E5E5463723E3F82100286C95 /* CounterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterState.swift; sourceTree = "<group>"; };
 		E5E5463B23E4032200286C95 /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 		E5E5463D23E4034200286C95 /* ExampleMiddlewares.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleMiddlewares.swift; sourceTree = "<group>"; };
+		E5EBC25E23E98132004B3F22 /* DataStoreInternalProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreInternalProtocol.swift; sourceTree = "<group>"; };
+		E5EBC26023E9828C004B3F22 /* ObservableType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extensions.swift"; sourceTree = "<group>"; };
 		E5F0CAA623E2A7E2004738D3 /* ReduxExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReduxExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F0CAA923E2A7E2004738D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F0CAAB23E2A7E2004738D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				E5387C5723E93D250073C0D1 /* Action.swift */,
 				E5E5463323E3F7A700286C95 /* DataStore.swift */,
 				E5E5463B23E4032200286C95 /* Middleware.swift */,
+				E5EBC25E23E98132004B3F22 /* DataStoreInternalProtocol.swift */,
+				E5EBC26023E9828C004B3F22 /* ObservableType+Extensions.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -394,11 +400,13 @@
 				E58C460423E4407E002EF05E /* TemplateAction.swift in Sources */,
 				E5E5463423E3F7A700286C95 /* DataStore.swift in Sources */,
 				E58C460C23E4474C002EF05E /* TemplateMiddlewares.swift in Sources */,
+				E5EBC25F23E98132004B3F22 /* DataStoreInternalProtocol.swift in Sources */,
 				E5E5463823E3F82100286C95 /* CounterState.swift in Sources */,
 				E5F0CAD623E2C386004738D3 /* CounterAction.swift in Sources */,
 				E5F0CAAE23E2A7E2004738D3 /* ContentView.swift in Sources */,
 				E5387C5823E93D250073C0D1 /* Action.swift in Sources */,
 				E58C460623E4419B002EF05E /* README_Template.swift in Sources */,
+				E5EBC26123E9828C004B3F22 /* ObservableType+Extensions.swift in Sources */,
 				E58C460823E4428B002EF05E /* TemplateState.swift in Sources */,
 				E5E5463E23E4034200286C95 /* ExampleMiddlewares.swift in Sources */,
 				E5E5463C23E4032200286C95 /* Middleware.swift in Sources */,
