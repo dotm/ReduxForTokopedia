@@ -16,7 +16,7 @@ public class CounterDataStore: DataStore {
     static var initialState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
     
     //Access this through DataStore.observeState.of(property: keypath)
-    internal var stateSubject = BehaviorRelay(value: CounterDataStore.initialState)
+    internal var stateRelay = BehaviorRelay(value: CounterDataStore.initialState)
     
     //Mutable state can only be modified through the data store's dispatch function
     private var mutableState = CounterDataStore.initialState
