@@ -38,7 +38,7 @@ internal protocol DataStore {
     
     //Internal storage of observable state
     ///DO NOT OBSERVE THIS. Observe the store's state using using DataStore.observeState.of(property: keypath)
-    var stateSubject: BehaviorSubject<DataStoreState> {get}
+    var stateSubject: BehaviorRelay<DataStoreState> {get}
     
     //Used in dispatch after mutableState has been changed
     //  to notify all observer of the store
@@ -70,7 +70,7 @@ extension DataStore {
     }
     
     internal func notifyStateChange(){
-        stateSubject.onNext(state)
+        stateSubject.accept(state)
     }
     
     internal func applyMiddlewares(with action: DataStoreAction) -> DataStoreAction? {

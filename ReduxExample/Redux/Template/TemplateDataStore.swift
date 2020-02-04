@@ -14,7 +14,7 @@
 //    static var initialState = <#ModuleName#>State()
 //
 //    //Access this through DataStore.observeState.of(property: keypath)
-//    internal var stateSubject = BehaviorSubject(value: <#ModuleName#>DataStore.initialState)
+//    internal var stateSubject = BehaviorRelay(value: <#ModuleName#>DataStore.initialState)
 //
 //    //Mutable state can only be modified through the data store's dispatch function
 //    private var mutableState = <#ModuleName#>State()
