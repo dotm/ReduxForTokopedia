@@ -37,7 +37,7 @@ internal protocol DataStoreInternalProtocol {
     //so that we can implement the default implementation
     
     //Internal storage of observable state
-    ///DO NOT OBSERVE THIS. Observe the store's state using using DataStore.observeState.of(property: keypath)
+    ///DO NOT OBSERVE THIS. Observe the store's state using using DataStore.listenTo(state: keypath)
     var stateRelay: BehaviorRelay<DataStoreState> {get}
     
     func mutateState(action: DataStoreAction)
@@ -49,7 +49,7 @@ internal protocol DataStoreInternalProtocol {
 
 extension DataStoreInternalProtocol {
     //Public entry-point to observe the state of the store
-    ///Access this using DataStore.observeState.of(property: keypath)
+    ///Access this using DataStore.listenTo(state: keypath)
     public var observeState: Observable<DataStoreState> {
         stateRelay.asObservable()
     }

@@ -20,7 +20,7 @@ public class CounterDataStore: DataStore, DataStoreInternalProtocol {
         mutableState = initialState
     }
     
-    //Access this through DataStore.observeState.of(property: keypath)
+    //Access this through DataStore.listenTo(state: keypath)
     internal var stateRelay: BehaviorRelay<DataStoreState>
     
     //Mutable state can only be modified through the data store's dispatch function

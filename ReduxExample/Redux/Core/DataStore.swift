@@ -27,6 +27,15 @@ public protocol DataStore {
     func dispatch(action: DataStoreAction)
         
     //Public entry-point to observe the state of the store
-    ///Access this using DataStore.observeState.of(property: keypath)
+    ///Access this using DataStore.listenTo(state: keypath)
     var observeState: Observable<DataStoreState> {get}
+    
+    ///Subscribe to changes in data store's state
+    func listenTo<T: Equatable>(state keyPath: WritableKeyPath<DataStoreState,T>) -> Observable<T>
+}
+
+extension DataStore {
+    public func listenTo<T: Equatable>(state keyPath: WritableKeyPath<DataStoreState,T>) -> Observable<T> {
+        return observeState.of(property: keyPath)
+    }
 }

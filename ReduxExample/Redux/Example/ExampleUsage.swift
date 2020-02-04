@@ -38,10 +38,10 @@ internal class Component {
         print("accessing store state:", store.state.count)
 
         //Subscribe to state change
-        store.observeState.of(property: \CounterState.count).subscribe(onNext: { count in
+        store.listenTo(state: \CounterState.count).subscribe(onNext: { count in
             print("count:", count)
         }).disposed(by: disposeBag)
-        store.observeState.of(property: \CounterState.lastChangedBy).subscribe(onNext: { lastChangedBy in
+        store.listenTo(state: \CounterState.lastChangedBy).subscribe(onNext: { lastChangedBy in
             print("lastChangedBy", lastChangedBy)
         }).disposed(by: disposeBag)
 
@@ -63,20 +63,20 @@ internal class Component {
         var firstMetaDataObserverCalledCount = 0
         var secondMetaDataObserverCalledCount = 0
         
-        store.observeState.of(property: \CounterState.nestedMetadata)
+        store.listenTo(state: \CounterState.nestedMetadata)
             .subscribe(onNext: { (nestedMetadata) in
                 nestedMetaDataObserverCalledCount += 1
                 print("should be called when children properties is changed", nestedMetadata)
             }).disposed(by: disposeBag)
 
         //test removing whole nestedMetadata first
-        store.observeState.of(property: \CounterState.nestedMetadata.firstMetadata)
+        store.listenTo(state: \CounterState.nestedMetadata.firstMetadata)
             .subscribe(onNext: { (firstMetadata) in
                 firstMetaDataObserverCalledCount += 1
                 print("should be called twice", firstMetadata)
             }).disposed(by: disposeBag)
 
-        store.observeState.of(property: \CounterState.nestedMetadata.secondMetadata)
+        store.listenTo(state: \CounterState.nestedMetadata.secondMetadata)
             .subscribe(onNext: { (secondMetadata) in
                 secondMetaDataObserverCalledCount += 1
                 print("should be called multiple times",secondMetadata)
