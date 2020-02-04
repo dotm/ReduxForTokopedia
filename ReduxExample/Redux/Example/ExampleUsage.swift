@@ -36,46 +36,63 @@ internal class Component {
     let disposeBag = DisposeBag()
     init() {
         let store = CounterDataStore()
-//        print("accessing store state", store.state.count)
-//        print("accessing store state", store.state.$count.currentValue)
-//
-//        //Subscribe to state change
-//        store.state.$count.observable.subscribe(onNext: { count in
-//            print("testcuy count", count)
-//        }).disposed(by: disposeBag)
-//        store.state.$lastChangedBy.distinctObservable.subscribe(onNext: { str in
-//            print("testcuy str", str)
-//        }).disposed(by: disposeBag)
-//
-//        //Can't set state directly like below
-//        //  store.state = CounterState(count: 0, lastChangedBy: "tes")
-//        //Use dispatch instead:
-//        store.dispatch(action: .incrementCount)
-//        store.dispatch(action: .incrementCount)
-//        store.dispatch(action: .incrementCount)
-//        print(store.state.count)
-//        store.dispatch(action: .setCount(count: 3, setBy: "admin"))
-//        store.dispatch(action: .setCount(count: 0, setBy: "admin"))
-//        print(store.state.count)
+        print("accessing store state:", store.state.count)
+
+        //Subscribe to state change
+        store.observeState.of(property: \CounterState.count).subscribe(onNext: { count in
+            print("count:", count)
+        }).disposed(by: disposeBag)
+        store.observeState.of(property: \CounterState.lastChangedBy).subscribe(onNext: { lastChangedBy in
+            print("lastChangedBy", lastChangedBy)
+        }).disposed(by: disposeBag)
+
+        //Can't set state directly like below
+        //  store.state = CounterState(count: 0, lastChangedBy: "tes")
+        //Use dispatch instead:
+        store.dispatch(action: .incrementCount)
+        store.dispatch(action: .incrementCount)
+        store.dispatch(action: .incrementCount)
+        store.dispatch(action: .setCount(count: 3, setBy: "admin"))
+        store.dispatch(action: .setCount(count: 0, setBy: "admin"))
         
+        testNestedState(store: store)
+    }
+    
+    func testNestedState(store: CounterDataStore){
+        print("\ntesting nested state -------\n")
+        var nestedMetaDataObserverCalledCount = 0
+        var firstMetaDataObserverCalledCount = 0
+        var secondMetaDataObserverCalledCount = 0
         
-        print("testing nested state -------")
-        
-//        store.state.$nestedMetadata.observable.subscribe(onNext: { (nestedMetadata) in
-//            print("should be called when children properties is changed", nestedMetadata)
-//        }).disposed(by: disposeBag)
-//
-//        //test removing whole nestedMetadata first
-//        store.state.nestedMetadata.$firstMetadata.observable.subscribe(onNext: { (firstMetadata) in
-//            print("should be called once", firstMetadata)
-//        }).disposed(by: disposeBag)
-//
-//        store.state.nestedMetadata.$secondMetadata.observable.subscribe(onNext: { (secondMetadata) in
-//            print("should be called multiple times",secondMetadata)
-//        }).disposed(by: disposeBag)
+        store.observeState.of(property: \CounterState.nestedMetadata)
+            .subscribe(onNext: { (nestedMetadata) in
+                nestedMetaDataObserverCalledCount += 1
+                print("should be called when children properties is changed", nestedMetadata)
+            }).disposed(by: disposeBag)
+
+        //test removing whole nestedMetadata first
+        store.observeState.of(property: \CounterState.nestedMetadata.firstMetadata)
+            .subscribe(onNext: { (firstMetadata) in
+                firstMetaDataObserverCalledCount += 1
+                print("should be called twice", firstMetadata)
+            }).disposed(by: disposeBag)
+
+        store.observeState.of(property: \CounterState.nestedMetadata.secondMetadata)
+            .subscribe(onNext: { (secondMetadata) in
+                secondMetaDataObserverCalledCount += 1
+                print("should be called multiple times",secondMetadata)
+            }).disposed(by: disposeBag)
         
         store.dispatch(action: .changeWholeNestedMetadata) //make sure that the subscription above still gets run even if the nested metadata is changed
         
-//        store.dispatch(action: .changeSecondNestedMetadata) //should call second metadata only and not first metadata
+        store.dispatch(action: .changeSecondNestedMetadata) //should call second metadata only and not first metadata
+        
+        store.dispatch(action: .changeWholeNestedMetadata)
+        store.dispatch(action: .changeSecondNestedMetadata)
+        
+        let initialChange = 1
+        let changedWholeNestedMetadata = 1
+        assert(firstMetaDataObserverCalledCount == initialChange + changedWholeNestedMetadata)
+        assert(nestedMetaDataObserverCalledCount == secondMetaDataObserverCalledCount)
     }
 }

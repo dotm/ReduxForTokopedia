@@ -6,19 +6,26 @@
 //  Copyright © 2020 Tokopedia. All rights reserved.
 //
 
+import RxCocoa
+import RxSwift
+
 ///Example Redux data store
 public class CounterDataStore: DataStore {
+    static var initialState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
+    
+    var stateSubject: BehaviorSubject<CounterState> = BehaviorSubject(value: CounterDataStore.initialState)
+    
     //See DataStore definition for explanation of each method and property
     
     //The dispatch function is implemented in DataStore.swift
     //Mutable state can only be modified through the data store's dispatch function
-    @ReduxState private var mutableState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
+    private var mutableState = CounterDataStore.initialState
     public var state: CounterState {  //read-only computed property
         return mutableState
     }
     
     internal var middlewares: [Middleware] = [
-        LoggingMiddleware(),
+//        LoggingMiddleware(),
         AllowSetToZeroOnly()
     ]
     

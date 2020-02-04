@@ -15,10 +15,10 @@
 //    //State must be wrapped with property wrapper
 //    //  so that it can be accessed as observable.
 //    //State must be made public to be accessible from other modules.
-//    @ReduxState public var <#stateName1#>: <#stateType1#>
-//    @ReduxState public var <#stateName2#>: <#stateType2#>
+//    public var <#stateName1#>: <#stateType1#>
+//    public var <#stateName2#>: <#stateType2#>
 //    //a state can contain another state (delete this if you don't have nested state)
-//    @ReduxState public var nestedState: ExampleNestedState
+//    public var nestedState: ExampleNestedState
 //
 //    //You can generate this automatically
 //    //using the newest Init Generator in Tokopedia XCode helper
@@ -31,8 +31,8 @@
 //}
 //
 //public class ExampleNestedState: Equatable { //nested state must conform to equatable
-//    @ReduxState public var firstProperty: Int
-//    @ReduxState public var secondProperty: Int
+//    public var firstProperty: Int
+//    public var secondProperty: Int
 //
 //    public init(firstProperty: Int, secondProperty: Int) {
 //        self.firstProperty = firstProperty

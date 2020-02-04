@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 
 internal protocol DataStore {
     associatedtype DataStoreState
@@ -33,6 +35,12 @@ internal protocol DataStore {
     //  for details on how they are applied
     var middlewares: [Middleware] {get}
     func applyMiddlewares(with action: DataStoreAction) -> DataStoreAction?
+    
+    var stateSubject: BehaviorSubject<DataStoreState> {get}
+    var observeState: Observable<DataStoreState> {get}
+    func notifyStateChange()
+    
+    static var initialState: DataStoreState {get}
 }
 
 extension DataStore {
@@ -43,6 +51,14 @@ extension DataStore {
         guard let action = applyMiddlewares(with: action) else { return }
         
         mutateState(action: action)
+        notifyStateChange()
+    }
+    
+    var observeState: Observable<DataStoreState> {
+        stateSubject.asObservable()
+    }
+    func notifyStateChange(){
+        stateSubject.onNext(state)
     }
     
     func applyMiddlewares(with action: DataStoreAction) -> DataStoreAction? {
@@ -53,5 +69,14 @@ extension DataStore {
         }
         guard let resultAction = nullableAction as? DataStoreAction? else {return nil}
         return resultAction
+    }
+}
+
+extension ObservableType {
+    func of<T: Equatable>(property keyPath: WritableKeyPath<E,T>) -> Observable<T> {
+        return self.map(keyPath: keyPath).distinctUntilChanged()
+    }
+    func map<T>(keyPath: WritableKeyPath<E,T>) -> Observable<T> {
+        return self.map { $0[keyPath: keyPath] }
     }
 }
