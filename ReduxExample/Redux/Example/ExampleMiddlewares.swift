@@ -9,7 +9,7 @@
 import Foundation
 
 // To stop the propagation of action
-// (stopping it from mutating the data store's state),
+// (to stop an action from mutating the data store's state),
 // return nil from a middleware
 
 ///Example Redux middleware that can be used by any action

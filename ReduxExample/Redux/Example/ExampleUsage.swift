@@ -9,28 +9,27 @@
 import RxCocoa
 import RxSwift
 
-/*
- To use within production environment:
- 
- - initialize data store in topmost parent component and put it in a constant property
- 
-    ```
-    class ShopViewController {
-        let store = ShopDataStore()
-    }
-    ```
- 
- - pass store to children of that parent so that the children can dispatch to the data store and subscribe to the data store's state
- 
-    ```
-    class ShopViewController {
-        let store = ShopDataStore()
-        let childrenComponent: UIView = ChildrenComponent1(store: store)
-        let childrenComponent: UIViewController = ChildrenComponent2(store: store)
-    }
-    ```
- 
-*/
+// How to use in production environment:
+//
+// - initialize data store in topmost parent component and put it in a constant property
+//
+//        ```
+//        class ShopViewController {
+//            let store = ShopDataStore()
+//        }
+//        ```
+//
+// - pass store to children of that parent so that the children
+//    can dispatch to the data store and
+//    subscribe to the data store's state
+//
+//        ```
+//        class ShopViewController {
+//            let store = ShopDataStore()
+//            let childrenComponent: UIView = ChildrenComponent1(store: store)
+//            let childrenComponent: UIViewController = ChildrenComponent2(store: store)
+//        }
+//        ```
 
 internal class Component {
     let disposeBag = DisposeBag()

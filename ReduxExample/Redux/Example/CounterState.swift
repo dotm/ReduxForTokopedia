@@ -7,12 +7,14 @@
 //
 
 ///Example Redux state object
-public struct CounterState: Equatable {
+public struct CounterState: Equatable { //State object must conform to Equatable
     //State must be wrapped with property wrapper
     //  so that it can be accessed as observable.
     //State must be made public to be accessible from other modules.
     public var count: Int
     public var lastChangedBy: String
+    
+    //Example of nested state (struct inside the state)
     public var nestedMetadata: NestedMetadata
 }
 
@@ -21,6 +23,7 @@ public struct NestedMetadata: Equatable {
     public var secondMetadata: Int
 }
 
+//Enable NestedMetadata to be printed
 extension NestedMetadata: CustomStringConvertible {
     public var description: String {
         "(\(firstMetadata),\(secondMetadata))"

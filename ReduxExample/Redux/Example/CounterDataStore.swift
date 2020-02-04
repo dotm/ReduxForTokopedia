@@ -11,19 +11,23 @@ import RxSwift
 
 ///Example Redux data store
 public class CounterDataStore: DataStore {
-    static var initialState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
-    
-    var stateSubject: BehaviorSubject<CounterState> = BehaviorSubject(value: CounterDataStore.initialState)
-    
     //See DataStore definition for explanation of each method and property
     
-    //The dispatch function is implemented in DataStore.swift
+    static var initialState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
+    
+    //Access this using DataStore.observeState.of(property: keypath)
+    internal var stateSubject: BehaviorSubject<CounterState> = BehaviorSubject(value: CounterDataStore.initialState)
+    
     //Mutable state can only be modified through the data store's dispatch function
     private var mutableState = CounterDataStore.initialState
-    public var state: CounterState {  //read-only computed property
+    public var state: CounterState {  //read-only computed property accessed from other modules
         return mutableState
     }
     
+    //DO NOT IMPLEMENT the dispatch function.
+    //It has been implemented in a standardized way in DataStore.swift
+    
+    //Add, remove, and comment out middlewares here
     internal var middlewares: [Middleware] = [
 //        LoggingMiddleware(),
         AllowSetToZeroOnly()
@@ -35,11 +39,15 @@ public class CounterDataStore: DataStore {
     //The only functions that are allowed to change mutableState are mutators
     public func printValue(){
         print("accessing state here is OK:", state)
-        print("mutating state here is NOT OK! Example: state = newState")
+        print("mutating state here is NOT OK! Example: mutableState = newState")
     }
 }
 
+
 //MARK:Mutators
+//Mutators must be in the same file as DataStore
+//  so that mutableState can be private
+
 //Functions used to update the data store's state
 //Do NOT do anything here other than updating the mutable state
 //Any other operation must be done from middleware
@@ -65,6 +73,7 @@ extension CounterDataStore {
         mutableState.lastChangedBy = "increment action"
     }
     
+    //MARK: Used for Testing
     private func setSecondMetadataMutator(){
         mutableState.nestedMetadata.secondMetadata = 99
     }
