@@ -7,10 +7,10 @@
 //
 
 ///Example Redux state object
-public struct CounterState: Equatable { //State object must conform to Equatable
-    //State must be wrapped with property wrapper
-    //  so that it can be accessed as observable.
+public struct CounterState: Equatable {
+    //State must conform to Equatable.
     //State must be made public to be accessible from other modules.
+    
     public var count: Int
     public var lastChangedBy: String
     
