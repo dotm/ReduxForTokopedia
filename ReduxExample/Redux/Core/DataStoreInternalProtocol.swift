@@ -18,6 +18,7 @@ internal protocol DataStoreInternalProtocol {
     associatedtype DataStoreAction
 
     // MARK: Default Implementation
+
     // of the store's properties and methods
 
     // Used in dispatch after mutableState has been changed
@@ -31,6 +32,7 @@ internal protocol DataStoreInternalProtocol {
     func applyMiddlewares(with action: DataStoreAction) -> DataStoreAction?
 
     // MARK: Required Utilities
+
     // so that we can implement the default implementation
 
     // Internal storage of observable state

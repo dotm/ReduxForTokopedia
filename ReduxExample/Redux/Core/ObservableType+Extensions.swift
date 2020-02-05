@@ -11,10 +11,11 @@ import RxCocoa
 import RxSwift
 
 extension ObservableType {
-    public func of<T: Equatable>(property keyPath: WritableKeyPath<E,T>) -> Observable<T> {
-        return self.map(keyPath: keyPath).distinctUntilChanged()
+    public func of<T: Equatable>(property keyPath: WritableKeyPath<E, T>) -> Observable<T> {
+        return map(keyPath: keyPath).distinctUntilChanged()
     }
-    public func map<T>(keyPath: WritableKeyPath<E,T>) -> Observable<T> {
-        return self.map { $0[keyPath: keyPath] }
+
+    public func map<T>(keyPath: WritableKeyPath<E, T>) -> Observable<T> {
+        return map { $0[keyPath: keyPath] }
     }
 }

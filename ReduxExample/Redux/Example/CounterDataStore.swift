@@ -14,38 +14,39 @@ public class CounterDataStore: DataStore, DataStoreInternalProtocol {
     public typealias DataStoreState = CounterState
     public typealias DataStoreAction = CounterAction
 
-    //MARK: Public Interface
+    // MARK: Public Interface
+
     public init() { // made public to be accessible from other modules
         let initialState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
         stateRelay = BehaviorRelay(value: initialState)
         mutableState = initialState
     }
-    
+
     public var state: DataStoreState { // read-only computed property accessed from other modules
         return mutableState
     }
-    
-    //DO NOT CHANGE THIS FUNCTION!
-    //It has been implmented in a standardized way.
+
+    // DO NOT CHANGE THIS FUNCTION!
+    // It has been implemented in a standardized way.
     public func dispatch(action: DataStoreAction) {
         guard let action = applyMiddlewares(with: action) else { return }
         mutateState(action: action)
         notifyStateChange()
     }
-    
+
     public var observeState: Observable<DataStoreState> {
         stateRelay.asObservable()
     }
 
-    //MARK: Internal Members
-    
+    // MARK: Internal Members
+
     // Access this through DataStore.listenTo(state: keypath)
     internal var stateRelay: BehaviorRelay<DataStoreState>
     // Mutable state can only be modified through the data store's dispatch function
     private var mutableState: DataStoreState
 
     // MARK: Middlewares
-    
+
     // Add, remove, and comment out middlewares here
     internal var middlewares: [Middleware] = [
 //        LoggingMiddleware(),
@@ -53,6 +54,7 @@ public class CounterDataStore: DataStore, DataStoreInternalProtocol {
     ]
 
     // MARK: Custom Store Functions
+
     // You don't have to implement any extra functions if you don't need to
     // Any custom store function must NOT mutate mutableState
     // The only functions that are allowed to change mutableState are mutators

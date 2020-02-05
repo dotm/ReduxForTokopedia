@@ -19,7 +19,7 @@ public protocol DataStore {
     // State should not be settable from outside the store
     // and it must not be changed directly (e.g. state = newState) from inside or outside the store
     // it could only be updated through dispatch(action) from inside the store
-    ///Get the current state of the data store
+    /// Get the current state of the data store
     var state: DataStoreState { get }
 
     // Public function used to dispatch action from other modules

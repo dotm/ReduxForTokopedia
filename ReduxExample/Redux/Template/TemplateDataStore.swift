@@ -1,5 +1,5 @@
 //
-//  TemplateDataStore.swift
+//  <#ModuleName#>DataStore.swift
 //  ReduxExample
 //
 //  Created by Yoshua Elmaryono on 31/01/20.
@@ -24,7 +24,7 @@
 //    }
 //
 //    //DO NOT CHANGE THIS FUNCTION!
-//    //It has been implmented in a standardized way.
+//    //It has been implemented in a standardized way.
 //    public func dispatch(action: DataStoreAction) {
 //        guard let action = applyMiddlewares(with: action) else { return }
 //        mutateState(action: action)

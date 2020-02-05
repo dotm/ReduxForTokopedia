@@ -6,12 +6,12 @@
 //  Copyright © 2020 Tokopedia. All rights reserved.
 //
 
-///Example Redux Action
-public enum CounterAction: Action {  //made public to be accessible from other modules
+/// Example Redux Action
+public enum CounterAction: Action { // made public to be accessible from other modules
     case incrementCount
     case setCount(count: Int, setBy: String)
-    
-    //Used for testing
+
+    // Used for testing
     case changeWholeNestedMetadata
     case changeSecondNestedMetadata
 }

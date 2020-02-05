@@ -12,32 +12,34 @@ import Foundation
 // (to stop an action from mutating the data store's state),
 // return nil from a middleware
 
-///Example Redux middleware that can be used by any action
+/// Example Redux middleware that can be used by any action
 internal struct LoggingMiddleware: Middleware {
     func apply<Action>(with action: Action?) -> Action? {
-        guard let action = action else {return nil}
-        
-        //MARK: Middleware implementation
+        guard let action = action else { return nil }
+
+        // MARK: Middleware implementation
+
         print(Date(), action)
-        
-        return action //or return nil to stop action propagation
+
+        return action // or return nil to stop action propagation
     }
 }
 
-///Example Redux middleware that can be used by a specific action
+/// Example Redux middleware that can be used by a specific action
 internal struct AllowSetToZeroOnly: Middleware {
     func apply(with action: Action?) -> Action? {
-        guard let specificAction = convertType(of: action, to: CounterAction.self) else {return action}
-        
-        //convert to specific case of enum
-        guard case .setCount(let count, _) = specificAction else {return specificAction}
+        guard let specificAction = convertType(of: action, to: CounterAction.self) else { return action }
 
-        //MARK: Middleware implementation
+        // convert to specific case of enum
+        guard case .setCount(let count, _) = specificAction else { return specificAction }
+
+        // MARK: Middleware implementation
+
         if count == 0 {
             return specificAction
-        }else{
+        } else {
             print("can only set to 0")
-            return nil //stop action propagation
+            return nil // stop action propagation
         }
     }
 }
