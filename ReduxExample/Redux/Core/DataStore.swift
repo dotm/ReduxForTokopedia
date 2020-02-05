@@ -10,32 +10,35 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-///A protocol used to define how other module
-///can interact with a Redux data store.
+/// A protocol used to define how other module
+/// can interact with a Redux data store.
 public protocol DataStore {
     associatedtype DataStoreState
     associatedtype DataStoreAction
-    
-    //State should not be settable from outside the store
-    //and it must not be changed directly (e.g. state = newState) from inside or outside the store
-    //it could only be updated through dispatch(action) from inside the store
+
+    // State should not be settable from outside the store
+    // and it must not be changed directly (e.g. state = newState) from inside or outside the store
+    // it could only be updated through dispatch(action) from inside the store
+    ///Get the current state of the data store
     var state: DataStoreState { get }
-    
-    //Public function used to dispatch action from other modules
-    ///Change the store's state using this function.     
-    ///DO NOT RE-IMPLEMENT THIS FUNCTION. It has been implemented in a standardized way in DataStoreInternalProtocol.
+
+    // Public function used to dispatch action from other modules
+    /// Change the store's state using this function.
+    /// DO NOT RE-IMPLEMENT THIS FUNCTION. It has been implemented in a standardized way.
     func dispatch(action: DataStoreAction)
-        
-    //Public entry-point to observe the state of the store
-    ///Access this using DataStore.listenTo(state: keypath)
-    var observeState: Observable<DataStoreState> {get}
-    
-    ///Subscribe to changes in data store's state
-    func listenTo<T: Equatable>(state keyPath: WritableKeyPath<DataStoreState,T>) -> Observable<T>
+
+    // Public entry-point to observe the state of the store
+    /// Access this using DataStore.listenTo(state: keypath)
+    var observeState: Observable<DataStoreState> { get }
+
+    /// Subscribe to changes in data store's state.
+    /// Use keypath from the state object to access the state.
+    /// For example: listenTo(state: \ExampleState.property.property)
+    func listenTo<T: Equatable>(state keyPath: WritableKeyPath<DataStoreState, T>) -> Observable<T>
 }
 
 extension DataStore {
-    public func listenTo<T: Equatable>(state keyPath: WritableKeyPath<DataStoreState,T>) -> Observable<T> {
+    public func listenTo<T: Equatable>(state keyPath: WritableKeyPath<DataStoreState, T>) -> Observable<T> {
         return observeState.of(property: keyPath)
     }
 }
