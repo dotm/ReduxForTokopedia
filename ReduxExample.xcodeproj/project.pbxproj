@@ -10,6 +10,8 @@
 		1FEAAEAF9AB073A9C70A6D87 /* Pods_ReduxExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FF1EEB6EA21811EDD007BB /* Pods_ReduxExampleTests.framework */; };
 		4B604BB13D6A70C4E36A8FCA /* Pods_ReduxExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577C95FA9A5309ED0FA437D6 /* Pods_ReduxExample.framework */; };
 		E5387C5823E93D250073C0D1 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5387C5723E93D250073C0D1 /* Action.swift */; };
+		E54D2EF023F17AA2004FB8EC /* CounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */; };
+		E56B847023F17362009646E3 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56B846F23F17362009646E3 /* CounterViewController.swift */; };
 		E58C460223E43F22002EF05E /* README_First.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460123E43F22002EF05E /* README_First.swift */; };
 		E58C460423E4407E002EF05E /* TemplateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460323E4407E002EF05E /* TemplateAction.swift */; };
 		E58C460623E4419B002EF05E /* README_Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460523E4419B002EF05E /* README_Template.swift */; };
@@ -22,14 +24,10 @@
 		E5E5463823E3F82100286C95 /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463723E3F82100286C95 /* CounterState.swift */; };
 		E5E5463C23E4032200286C95 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463B23E4032200286C95 /* Middleware.swift */; };
 		E5E5463E23E4034200286C95 /* ExampleMiddlewares.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463D23E4034200286C95 /* ExampleMiddlewares.swift */; };
-		E5EBC25F23E98132004B3F22 /* DataStoreInternalProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBC25E23E98132004B3F22 /* DataStoreInternalProtocol.swift */; };
 		E5EBC26123E9828C004B3F22 /* ObservableType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBC26023E9828C004B3F22 /* ObservableType+Extensions.swift */; };
 		E5F0CAAA23E2A7E2004738D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F0CAA923E2A7E2004738D3 /* AppDelegate.swift */; };
-		E5F0CAAC23E2A7E2004738D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F0CAAB23E2A7E2004738D3 /* SceneDelegate.swift */; };
-		E5F0CAAE23E2A7E2004738D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F0CAAD23E2A7E2004738D3 /* ContentView.swift */; };
 		E5F0CAB023E2A7E3004738D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F0CAAF23E2A7E3004738D3 /* Assets.xcassets */; };
 		E5F0CAB323E2A7E3004738D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F0CAB223E2A7E3004738D3 /* Preview Assets.xcassets */; };
-		E5F0CAB623E2A7E3004738D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F0CAB423E2A7E3004738D3 /* LaunchScreen.storyboard */; };
 		E5F0CAC123E2A7E3004738D3 /* ReduxExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F0CAC023E2A7E3004738D3 /* ReduxExampleTests.swift */; };
 		E5F0CAD623E2C386004738D3 /* CounterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F0CAD523E2C386004738D3 /* CounterAction.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +49,8 @@
 		577C95FA9A5309ED0FA437D6 /* Pods_ReduxExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FF1EEB6EA21811EDD007BB /* Pods_ReduxExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5387C5723E93D250073C0D1 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewModel.swift; sourceTree = "<group>"; };
+		E56B846F23F17362009646E3 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		E58C460123E43F22002EF05E /* README_First.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = README_First.swift; sourceTree = "<group>"; };
 		E58C460323E4407E002EF05E /* TemplateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateAction.swift; sourceTree = "<group>"; };
 		E58C460523E4419B002EF05E /* README_Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = README_Template.swift; sourceTree = "<group>"; };
@@ -63,15 +63,11 @@
 		E5E5463723E3F82100286C95 /* CounterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterState.swift; sourceTree = "<group>"; };
 		E5E5463B23E4032200286C95 /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 		E5E5463D23E4034200286C95 /* ExampleMiddlewares.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleMiddlewares.swift; sourceTree = "<group>"; };
-		E5EBC25E23E98132004B3F22 /* DataStoreInternalProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreInternalProtocol.swift; sourceTree = "<group>"; };
 		E5EBC26023E9828C004B3F22 /* ObservableType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extensions.swift"; sourceTree = "<group>"; };
 		E5F0CAA623E2A7E2004738D3 /* ReduxExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReduxExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F0CAA923E2A7E2004738D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5F0CAAB23E2A7E2004738D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E5F0CAAD23E2A7E2004738D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E5F0CAAF23E2A7E3004738D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5F0CAB223E2A7E3004738D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E5F0CAB523E2A7E3004738D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5F0CAB723E2A7E3004738D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5F0CABC23E2A7E3004738D3 /* ReduxExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReduxExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F0CAC023E2A7E3004738D3 /* ReduxExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxExampleTests.swift; sourceTree = "<group>"; };
@@ -145,10 +141,9 @@
 			children = (
 				E5F0CACD23E2C2F4004738D3 /* Redux */,
 				E5F0CAA923E2A7E2004738D3 /* AppDelegate.swift */,
-				E5F0CAAB23E2A7E2004738D3 /* SceneDelegate.swift */,
-				E5F0CAAD23E2A7E2004738D3 /* ContentView.swift */,
+				E56B846F23F17362009646E3 /* CounterViewController.swift */,
+				E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */,
 				E5F0CAAF23E2A7E3004738D3 /* Assets.xcassets */,
-				E5F0CAB423E2A7E3004738D3 /* LaunchScreen.storyboard */,
 				E5F0CAB723E2A7E3004738D3 /* Info.plist */,
 				E5F0CAB123E2A7E3004738D3 /* Preview Content */,
 			);
@@ -189,7 +184,6 @@
 				E5387C5723E93D250073C0D1 /* Action.swift */,
 				E5E5463323E3F7A700286C95 /* DataStore.swift */,
 				E5E5463B23E4032200286C95 /* Middleware.swift */,
-				E5EBC25E23E98132004B3F22 /* DataStoreInternalProtocol.swift */,
 				E5EBC26023E9828C004B3F22 /* ObservableType+Extensions.swift */,
 			);
 			path = Core;
@@ -303,7 +297,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5F0CAB623E2A7E3004738D3 /* LaunchScreen.storyboard in Resources */,
 				E5F0CAB323E2A7E3004738D3 /* Preview Assets.xcassets in Resources */,
 				E5F0CAB023E2A7E3004738D3 /* Assets.xcassets in Resources */,
 			);
@@ -396,17 +389,16 @@
 			files = (
 				E5F0CAAA23E2A7E2004738D3 /* AppDelegate.swift in Sources */,
 				E58C460223E43F22002EF05E /* README_First.swift in Sources */,
-				E5F0CAAC23E2A7E2004738D3 /* SceneDelegate.swift in Sources */,
 				E58C460423E4407E002EF05E /* TemplateAction.swift in Sources */,
+				E56B847023F17362009646E3 /* CounterViewController.swift in Sources */,
 				E5E5463423E3F7A700286C95 /* DataStore.swift in Sources */,
 				E58C460C23E4474C002EF05E /* TemplateMiddlewares.swift in Sources */,
-				E5EBC25F23E98132004B3F22 /* DataStoreInternalProtocol.swift in Sources */,
 				E5E5463823E3F82100286C95 /* CounterState.swift in Sources */,
 				E5F0CAD623E2C386004738D3 /* CounterAction.swift in Sources */,
-				E5F0CAAE23E2A7E2004738D3 /* ContentView.swift in Sources */,
 				E5387C5823E93D250073C0D1 /* Action.swift in Sources */,
 				E58C460623E4419B002EF05E /* README_Template.swift in Sources */,
 				E5EBC26123E9828C004B3F22 /* ObservableType+Extensions.swift in Sources */,
+				E54D2EF023F17AA2004FB8EC /* CounterViewModel.swift in Sources */,
 				E58C460823E4428B002EF05E /* TemplateState.swift in Sources */,
 				E5E5463E23E4034200286C95 /* ExampleMiddlewares.swift in Sources */,
 				E5E5463C23E4032200286C95 /* Middleware.swift in Sources */,
@@ -433,17 +425,6 @@
 			targetProxy = E5F0CABD23E2A7E3004738D3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E5F0CAB423E2A7E3004738D3 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E5F0CAB523E2A7E3004738D3 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E5F0CAC323E2A7E3004738D3 /* Debug */ = {
