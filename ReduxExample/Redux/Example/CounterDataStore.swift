@@ -43,7 +43,7 @@ public class CounterDataStore: DataStore {
 
     // Add, remove, and comment out middlewares here
     private var middlewares: [Middleware] = [
-//        LoggingMiddleware(),
+        LoggingMiddleware(),
         AllowSetToZeroOnly(),
     ]
 

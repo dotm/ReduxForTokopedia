@@ -11,13 +11,15 @@ import RxSwift
 import UIKit
 
 internal class CounterViewController: UIViewController {
+    private let store: CounterDataStore
     private let viewModel: CounterViewModel
     private var incrementButton: UIButton!
     private var setCountButton: UIButton!
     private var counterLabel: UILabel!
     
     internal init(){
-        viewModel = CounterViewModel()
+        store = CounterDataStore()
+        viewModel = CounterViewModel(store: store)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,9 +40,13 @@ internal class CounterViewController: UIViewController {
         let input = CounterViewModel.Input(
             didLoadTrigger: Observable.didLoadTrigger().asDriver(onErrorDriveWith: Driver.empty()),
             incrementTrigger: incrementButton.rx.tap.asDriver(),
-            setCountTrigger: setCountButton.rx.tap.map{_ in 0}.asDriver(onErrorDriveWith: Driver.empty())
+            setCountTrigger: setCountButton.rx.tap.map{_ in 0}.asDriver(onErrorDriveWith: Driver.empty()),
+            countChanged: store.listenTo(state: \CounterState.count).asDriver(onErrorDriveWith: Driver.empty())
         )
         let output = viewModel.transform(input: input)
+        output.dispatchAction.drive(onNext: { (action) in
+            self.store.dispatch(action: action)
+        }).disposed(by: disposeBag)
         output.counterTextDriver.drive(onNext: { (string) in
             self.counterLabel.text = string
         }).disposed(by: disposeBag)

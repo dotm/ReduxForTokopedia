@@ -11,38 +11,44 @@ import RxSwift
 import Foundation
 
 internal class CounterViewModel {
+    private let store: CounterDataStore
+    init(store: CounterDataStore) {
+        self.store = store
+    }
+    
     internal struct Input {
         internal let didLoadTrigger: Driver<Void>
         internal let incrementTrigger: Driver<Void>
         internal let setCountTrigger: Driver<Int>
+        internal let countChanged: Driver<Int>
     }
     
     internal struct Output {
+        internal let dispatchAction: Driver<CounterAction>
         internal let counterTextDriver: Driver<String>
     }
     
     internal func transform(input: Input) -> Output {
-        let count = BehaviorRelay<Int>(value: 0)
+        let didLoadTrigger = input.didLoadTrigger.map { () -> CounterAction in
+            .setCount(count: 0, setBy: "didLoadTrigger")
+        }
+        let incrementTrigger = input.incrementTrigger.map { () -> CounterAction in
+            .incrementCount
+        }
+        let setCountTrigger = input.setCountTrigger.map { newCount -> CounterAction in
+            .setCount(count: newCount, setBy: "setCountTrigger")
+        }
         
-        let didLoadTrigger = input.didLoadTrigger.do(onNext: { () in
-            count.accept(0)
-        })
-        let incrementTrigger = input.incrementTrigger.do(onNext: { () in
-            count.accept(count.value + 1)
-        })
-        let setCountTrigger = input.setCountTrigger.do(onNext: { newCount in
-            count.accept(newCount)
-        }).map{_ in }
+        let dispatchAction = Driver.merge(
+            didLoadTrigger,
+            incrementTrigger,
+            setCountTrigger
+        )
         
-        
-        let counterTextDriver = Driver.merge(
-                didLoadTrigger,
-                incrementTrigger,
-                setCountTrigger
-            )
-            .map{"Count: \(count.value)"}
+        let counterTextDriver = input.countChanged
+            .map{_ in "Count: \(self.store.state.count)"}
             .asDriver()
         
-        return Output(counterTextDriver: counterTextDriver)
+        return Output(dispatchAction: dispatchAction, counterTextDriver: counterTextDriver)
     }
 }
