@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 
 /// Example Redux data store
-public class CounterDataStore: DataStore, DataStoreInternalProtocol {
+public class CounterDataStore: DataStore {
     public typealias DataStoreState = CounterState
     public typealias DataStoreAction = CounterAction
 
@@ -26,29 +26,23 @@ public class CounterDataStore: DataStore, DataStoreInternalProtocol {
         return mutableState
     }
 
-    // DO NOT CHANGE THIS FUNCTION!
-    // It has been implemented in a standardized way.
-    public func dispatch(action: DataStoreAction) {
-        guard let action = applyMiddlewares(with: action) else { return }
-        mutateState(action: action)
-        notifyStateChange()
-    }
-
+    /// Access this through DataStore.listenTo(state: keypath)
     public var observeState: Observable<DataStoreState> {
         stateRelay.asObservable()
     }
 
-    // MARK: Internal Members
+    // MARK: Private Members
 
     // Access this through DataStore.listenTo(state: keypath)
-    internal var stateRelay: BehaviorRelay<DataStoreState>
+    private var stateRelay: BehaviorRelay<DataStoreState>
+
     // Mutable state can only be modified through the data store's dispatch function
     private var mutableState: DataStoreState
 
     // MARK: Middlewares
 
     // Add, remove, and comment out middlewares here
-    internal var middlewares: [Middleware] = [
+    private var middlewares: [Middleware] = [
 //        LoggingMiddleware(),
         AllowSetToZeroOnly(),
     ]
@@ -61,6 +55,33 @@ public class CounterDataStore: DataStore, DataStoreInternalProtocol {
     public func printValue() {
         print("accessing state here is OK:", state)
         print("mutating state here is NOT OK! Example: mutableState = newState")
+    }
+}
+
+extension CounterDataStore {
+    // MARK: Functions you should NOT touch
+
+    // DO NOT CHANGE THE FUNCTIONS BELOW!
+    // They have been implemented in a standardized way.
+
+    public func dispatch(action: DataStoreAction) {
+        guard let action = applyMiddlewares(with: action) else { return }
+        mutateState(action: action)
+        notifyStateChange()
+    }
+
+    private func notifyStateChange() {
+        stateRelay.accept(state)
+    }
+
+    private func applyMiddlewares(with action: DataStoreAction) -> DataStoreAction? {
+        var nullableAction: Action? = action
+        for middleware in middlewares {
+            guard let resultAction = middleware.apply(with: nullableAction) as? DataStoreAction else { break }
+            nullableAction = resultAction
+        }
+        guard let resultAction = nullableAction as? DataStoreAction? else { return nil }
+        return resultAction
     }
 }
 
