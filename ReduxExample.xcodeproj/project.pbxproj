@@ -12,6 +12,9 @@
 		E5387C5823E93D250073C0D1 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5387C5723E93D250073C0D1 /* Action.swift */; };
 		E54D2EF023F17AA2004FB8EC /* CounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */; };
 		E56B847023F17362009646E3 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56B846F23F17362009646E3 /* CounterViewController.swift */; };
+		E56FE1E223F25D6A0029E9C7 /* CounterStateMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E123F25D6A0029E9C7 /* CounterStateMutator.swift */; };
+		E56FE1E423F279EA0029E9C7 /* BaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E323F279EA0029E9C7 /* BaseDataStore.swift */; };
+		E56FE1E623F27DD90029E9C7 /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E523F27DD90029E9C7 /* Mutator.swift */; };
 		E58C460223E43F22002EF05E /* README_First.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460123E43F22002EF05E /* README_First.swift */; };
 		E58C460423E4407E002EF05E /* TemplateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460323E4407E002EF05E /* TemplateAction.swift */; };
 		E58C460623E4419B002EF05E /* README_Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460523E4419B002EF05E /* README_Template.swift */; };
@@ -51,6 +54,9 @@
 		E5387C5723E93D250073C0D1 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewModel.swift; sourceTree = "<group>"; };
 		E56B846F23F17362009646E3 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
+		E56FE1E123F25D6A0029E9C7 /* CounterStateMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterStateMutator.swift; sourceTree = "<group>"; };
+		E56FE1E323F279EA0029E9C7 /* BaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataStore.swift; sourceTree = "<group>"; };
+		E56FE1E523F27DD90029E9C7 /* Mutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutator.swift; sourceTree = "<group>"; };
 		E58C460123E43F22002EF05E /* README_First.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = README_First.swift; sourceTree = "<group>"; };
 		E58C460323E4407E002EF05E /* TemplateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateAction.swift; sourceTree = "<group>"; };
 		E58C460523E4419B002EF05E /* README_Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = README_Template.swift; sourceTree = "<group>"; };
@@ -183,6 +189,8 @@
 			children = (
 				E5387C5723E93D250073C0D1 /* Action.swift */,
 				E5E5463323E3F7A700286C95 /* DataStore.swift */,
+				E56FE1E323F279EA0029E9C7 /* BaseDataStore.swift */,
+				E56FE1E523F27DD90029E9C7 /* Mutator.swift */,
 				E5E5463B23E4032200286C95 /* Middleware.swift */,
 				E5EBC26023E9828C004B3F22 /* ObservableType+Extensions.swift */,
 			);
@@ -206,6 +214,7 @@
 			children = (
 				E5F0CAD523E2C386004738D3 /* CounterAction.swift */,
 				E5E5463523E3F7D400286C95 /* CounterDataStore.swift */,
+				E56FE1E123F25D6A0029E9C7 /* CounterStateMutator.swift */,
 				E5E5463723E3F82100286C95 /* CounterState.swift */,
 				E5E5463123E3F74800286C95 /* ExampleUsage.swift */,
 				E5E5463D23E4034200286C95 /* ExampleMiddlewares.swift */,
@@ -390,6 +399,7 @@
 				E5F0CAAA23E2A7E2004738D3 /* AppDelegate.swift in Sources */,
 				E58C460223E43F22002EF05E /* README_First.swift in Sources */,
 				E58C460423E4407E002EF05E /* TemplateAction.swift in Sources */,
+				E56FE1E623F27DD90029E9C7 /* Mutator.swift in Sources */,
 				E56B847023F17362009646E3 /* CounterViewController.swift in Sources */,
 				E5E5463423E3F7A700286C95 /* DataStore.swift in Sources */,
 				E58C460C23E4474C002EF05E /* TemplateMiddlewares.swift in Sources */,
@@ -399,9 +409,11 @@
 				E58C460623E4419B002EF05E /* README_Template.swift in Sources */,
 				E5EBC26123E9828C004B3F22 /* ObservableType+Extensions.swift in Sources */,
 				E54D2EF023F17AA2004FB8EC /* CounterViewModel.swift in Sources */,
+				E56FE1E223F25D6A0029E9C7 /* CounterStateMutator.swift in Sources */,
 				E58C460823E4428B002EF05E /* TemplateState.swift in Sources */,
 				E5E5463E23E4034200286C95 /* ExampleMiddlewares.swift in Sources */,
 				E5E5463C23E4032200286C95 /* Middleware.swift in Sources */,
+				E56FE1E423F279EA0029E9C7 /* BaseDataStore.swift in Sources */,
 				E5E5463223E3F74800286C95 /* ExampleUsage.swift in Sources */,
 				E5E5463623E3F7D400286C95 /* CounterDataStore.swift in Sources */,
 				E58C460A23E444B1002EF05E /* TemplateDataStore.swift in Sources */,

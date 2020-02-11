@@ -24,7 +24,6 @@ public protocol DataStore {
 
     // Public function used to dispatch action from other modules
     /// Change the store's state using this function.
-    /// DO NOT RE-IMPLEMENT THIS FUNCTION. It has been implemented in a standardized way.
     func dispatch(action: DataStoreAction)
 
     // Public entry-point to observe the state of the store
