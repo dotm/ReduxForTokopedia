@@ -53,45 +53,5 @@ internal class Component {
         store.dispatch(action: .incrementCount)
         store.dispatch(action: .setCount(count: 3, setBy: "admin"))
         store.dispatch(action: .setCount(count: 0, setBy: "admin"))
-
-        testNestedState(store: store)
-    }
-
-    func testNestedState(store: CounterDataStore) {
-        print("\ntesting nested state -------\n")
-        var nestedMetaDataObserverCalledCount = 0
-        var firstMetaDataObserverCalledCount = 0
-        var secondMetaDataObserverCalledCount = 0
-
-        store.listenTo(state: \CounterState.nestedMetadata)
-            .subscribe(onNext: { nestedMetadata in
-                nestedMetaDataObserverCalledCount += 1
-                print("should be called when children properties is changed", nestedMetadata)
-            }).disposed(by: disposeBag)
-
-        //test removing whole nestedMetadata first
-        store.listenTo(state: \CounterState.nestedMetadata.firstMetadata)
-            .subscribe(onNext: { firstMetadata in
-                firstMetaDataObserverCalledCount += 1
-                print("should be called twice", firstMetadata)
-            }).disposed(by: disposeBag)
-
-        store.listenTo(state: \CounterState.nestedMetadata.secondMetadata)
-            .subscribe(onNext: { secondMetadata in
-                secondMetaDataObserverCalledCount += 1
-                print("should be called multiple times", secondMetadata)
-            }).disposed(by: disposeBag)
-
-        store.dispatch(action: .changeWholeNestedMetadata) // make sure that the subscription above still gets run even if the nested metadata is changed
-
-        store.dispatch(action: .changeSecondNestedMetadata) // should call second metadata only and not first metadata
-
-        store.dispatch(action: .changeWholeNestedMetadata)
-        store.dispatch(action: .changeSecondNestedMetadata)
-
-        let initialChange = 1
-        let changedWholeNestedMetadata = 1
-        assert(firstMetaDataObserverCalledCount == initialChange + changedWholeNestedMetadata)
-        assert(nestedMetaDataObserverCalledCount == secondMetaDataObserverCalledCount)
     }
 }
