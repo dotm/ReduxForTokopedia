@@ -10,34 +10,25 @@ import RxCocoa
 import RxSwift
 
 /// Example Redux data store
-public class CounterDataStore: DataStore {
-    public typealias DataStoreState = CounterState
-    public typealias DataStoreAction = CounterAction
+public class CounterDataStore: BaseDataStore<CounterState, CounterAction> {
+    // MARK: Custom Store Properties and Functions
+
+    // You don't have to implement any extra functions if you don't need to
+    // Any custom store function must NOT mutate mutableState
+    // The only functions that are allowed to change mutableState are mutators
+    public func printValue() {
+        print("accessing state here is OK:", state)
+        print("mutating state here is NOT OK! Example: mutableState = newState")
+    }
 
     // MARK: Public Interface
 
-    public init() { // made public to be accessible from other modules
+    public override init() { // made public to be accessible from other modules
         let initialState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
-        stateRelay = BehaviorRelay(value: initialState)
-        mutableState = initialState
+        super.init(stateRelay: BehaviorRelay(value: initialState), mutableState: initialState)
     }
-
-    public var state: DataStoreState { // read-only computed property accessed from other modules
-        return mutableState
-    }
-
-    /// Access this through DataStore.listenTo(state: keypath)
-    public var observeState: Observable<DataStoreState> {
-        stateRelay.asObservable()
-    }
-
-    // MARK: Private Members
-
-    // Access this through DataStore.listenTo(state: keypath)
-    private var stateRelay: BehaviorRelay<DataStoreState>
-
-    // Mutable state can only be modified through the data store's dispatch function
-    private var mutableState: DataStoreState
+    
+    // All the functions defined for the DataStore protocol is implemented in BaseDateStore
 
     // MARK: Middlewares
 
@@ -47,49 +38,7 @@ public class CounterDataStore: DataStore {
         AllowSetToZeroOnly(),
     ]
 
-    // MARK: Custom Store Functions
-
-    // You don't have to implement any extra functions if you don't need to
-    // Any custom store function must NOT mutate mutableState
-    // The only functions that are allowed to change mutableState are mutators
-    public func printValue() {
-        print("accessing state here is OK:", state)
-        print("mutating state here is NOT OK! Example: mutableState = newState")
-    }
-}
-
-extension CounterDataStore {
-    // MARK: Functions you should NOT touch
-
-    // DO NOT CHANGE THE FUNCTIONS BELOW!
-    // They have been implemented in a standardized way.
-
-    public func dispatch(action: DataStoreAction) {
-        guard let action = applyMiddlewares(with: action) else { return }
-        mutateState(action: action)
-        notifyStateChange()
-    }
-
-    private func notifyStateChange() {
-        stateRelay.accept(state)
-    }
-
-    private func applyMiddlewares(with action: DataStoreAction) -> DataStoreAction? {
-        var nullableAction: Action? = action
-        for middleware in middlewares {
-            guard let resultAction = middleware.apply(with: nullableAction) as? DataStoreAction else { break }
-            nullableAction = resultAction
-        }
-        guard let resultAction = nullableAction as? DataStoreAction? else { return nil }
-        return resultAction
-    }
-}
-
-extension CounterDataStore {
     // MARK: Mutators
-
-    // Mutators must be in the same file as DataStore
-    //  so that mutableState can be private
 
     // Functions used to update the data store's state
     // Do NOT do anything here other than updating the mutable state
@@ -97,7 +46,7 @@ extension CounterDataStore {
 
     // MARK: Entry-Point for Mutators
 
-    internal func mutateState(action: CounterAction) {
+    private func mutateState(action: CounterAction) {
         switch action {
         case let .setCount(count, setBy): setCounterActionMutator(count: count, setBy: setBy)
         case .incrementCount: incrementActionMutator()
@@ -118,7 +67,7 @@ extension CounterDataStore {
         mutableState.lastChangedBy = "increment action"
     }
 
-    // MARK: Used for Testing
+    // MARK: Mutators Used for Testing
 
     private func setSecondMetadataMutator() {
         mutableState.nestedMetadata.secondMetadata = 99
