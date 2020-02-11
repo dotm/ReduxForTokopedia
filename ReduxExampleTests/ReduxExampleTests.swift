@@ -2,12 +2,11 @@
 //  ReduxExampleTests.swift
 //  ReduxExampleTests
 //
-//  Created by Yoshua Elmaryono on 30/01/20.
+//  Created by Yoshua Elmaryono on 11/02/20.
 //  Copyright © 2020 Tokopedia. All rights reserved.
 //
 
 import XCTest
-@testable import ReduxExample
 
 class ReduxExampleTests: XCTestCase {
 
@@ -26,7 +25,7 @@ class ReduxExampleTests: XCTestCase {
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
