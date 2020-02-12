@@ -12,7 +12,7 @@ import RxSwift
 
 /// A base class used to provide default implementation.
 /// You should not use this class directly. Use it's children instead.
-public class BaseDataStore<DataStoreState, DataStoreAction, DataStoreMutator> where DataStoreAction: Action, DataStoreMutator: Mutator, DataStoreMutator.DataStoreState == DataStoreState, DataStoreMutator.DataStoreAction == DataStoreAction {
+open class BaseDataStore<DataStoreState, DataStoreAction, DataStoreMutator> where DataStoreAction: Action, DataStoreMutator: Mutator, DataStoreMutator.DataStoreState == DataStoreState, DataStoreMutator.DataStoreAction == DataStoreAction {
     
     /// This init will raise fatal error because this class is not supposed to be instantiated.
     /// If you want to use super.init(), use the other init instead.
@@ -21,7 +21,7 @@ public class BaseDataStore<DataStoreState, DataStoreAction, DataStoreMutator> wh
     }
     
     /// Used for super.init call
-    internal init(stateRelay: BehaviorRelay<DataStoreState>, mutableState: DataStoreState, mutator: DataStoreMutator) {
+    public init(stateRelay: BehaviorRelay<DataStoreState>, mutableState: DataStoreState, mutator: DataStoreMutator) {
         self.stateRelay = stateRelay
         self.mutableState = mutableState
         self.mutator = mutator
