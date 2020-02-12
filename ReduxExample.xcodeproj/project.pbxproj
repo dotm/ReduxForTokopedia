@@ -13,6 +13,10 @@
 		E5387C5823E93D250073C0D1 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5387C5723E93D250073C0D1 /* Action.swift */; };
 		E54D2EF023F17AA2004FB8EC /* CounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */; };
 		E55C4AE823F3A27900B91DD2 /* TemplateStateMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AE723F3A27900B91DD2 /* TemplateStateMutator.swift */; };
+		E55C4AEB23F3C5C800B91DD2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AEA23F3C5C800B91DD2 /* RootViewController.swift */; };
+		E55C4AED23F3E23F00B91DD2 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AEC23F3E23F00B91DD2 /* SwitchView.swift */; };
+		E55C4AEF23F3E26A00B91DD2 /* SwitchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AEE23F3E26A00B91DD2 /* SwitchViewViewModel.swift */; };
+		E55C4AF123F3E78600B91DD2 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AF023F3E78600B91DD2 /* RootViewModel.swift */; };
 		E56B847023F17362009646E3 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56B846F23F17362009646E3 /* CounterViewController.swift */; };
 		E56FE1E223F25D6A0029E9C7 /* CounterStateMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E123F25D6A0029E9C7 /* CounterStateMutator.swift */; };
 		E56FE1E423F279EA0029E9C7 /* BaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E323F279EA0029E9C7 /* BaseDataStore.swift */; };
@@ -58,6 +62,10 @@
 		E5387C5723E93D250073C0D1 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewModel.swift; sourceTree = "<group>"; };
 		E55C4AE723F3A27900B91DD2 /* TemplateStateMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateStateMutator.swift; sourceTree = "<group>"; };
+		E55C4AEA23F3C5C800B91DD2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		E55C4AEC23F3E23F00B91DD2 /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
+		E55C4AEE23F3E26A00B91DD2 /* SwitchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewViewModel.swift; sourceTree = "<group>"; };
+		E55C4AF023F3E78600B91DD2 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		E56B846F23F17362009646E3 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		E56FE1E123F25D6A0029E9C7 /* CounterStateMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterStateMutator.swift; sourceTree = "<group>"; };
 		E56FE1E323F279EA0029E9C7 /* BaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataStore.swift; sourceTree = "<group>"; };
@@ -133,6 +141,17 @@
 			path = ReduxExampleTests;
 			sourceTree = "<group>";
 		};
+		E55C4AE923F3C59E00B91DD2 /* NestedSwitchExample */ = {
+			isa = PBXGroup;
+			children = (
+				E55C4AEA23F3C5C800B91DD2 /* RootViewController.swift */,
+				E55C4AF023F3E78600B91DD2 /* RootViewModel.swift */,
+				E55C4AEE23F3E26A00B91DD2 /* SwitchViewViewModel.swift */,
+				E55C4AEC23F3E23F00B91DD2 /* SwitchView.swift */,
+			);
+			path = NestedSwitchExample;
+			sourceTree = "<group>";
+		};
 		E5F0CA9D23E2A7E2004738D3 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +175,7 @@
 		E5F0CAA823E2A7E2004738D3 /* ReduxExample */ = {
 			isa = PBXGroup;
 			children = (
+				E55C4AE923F3C59E00B91DD2 /* NestedSwitchExample */,
 				E5F0CACD23E2C2F4004738D3 /* Redux */,
 				E5F0CAA923E2A7E2004738D3 /* AppDelegate.swift */,
 				E56B846F23F17362009646E3 /* CounterViewController.swift */,
@@ -434,16 +454,20 @@
 			files = (
 				E5F0CAAA23E2A7E2004738D3 /* AppDelegate.swift in Sources */,
 				E58C460223E43F22002EF05E /* README_First.swift in Sources */,
+				E55C4AF123F3E78600B91DD2 /* RootViewModel.swift in Sources */,
 				E58C460423E4407E002EF05E /* TemplateAction.swift in Sources */,
 				E56FE1E623F27DD90029E9C7 /* Mutator.swift in Sources */,
 				E56B847023F17362009646E3 /* CounterViewController.swift in Sources */,
+				E55C4AEF23F3E26A00B91DD2 /* SwitchViewViewModel.swift in Sources */,
 				E5E5463423E3F7A700286C95 /* DataStore.swift in Sources */,
 				E58C460C23E4474C002EF05E /* TemplateMiddlewares.swift in Sources */,
 				E5E5463823E3F82100286C95 /* CounterState.swift in Sources */,
+				E55C4AED23F3E23F00B91DD2 /* SwitchView.swift in Sources */,
 				E5F0CAD623E2C386004738D3 /* CounterAction.swift in Sources */,
 				E5387C5823E93D250073C0D1 /* Action.swift in Sources */,
 				E58C460623E4419B002EF05E /* README_Template.swift in Sources */,
 				E5EBC26123E9828C004B3F22 /* ObservableType+Extensions.swift in Sources */,
+				E55C4AEB23F3C5C800B91DD2 /* RootViewController.swift in Sources */,
 				E54D2EF023F17AA2004FB8EC /* CounterViewModel.swift in Sources */,
 				E56FE1E223F25D6A0029E9C7 /* CounterStateMutator.swift in Sources */,
 				E58C460823E4428B002EF05E /* TemplateState.swift in Sources */,
