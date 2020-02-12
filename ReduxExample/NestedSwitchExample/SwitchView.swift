@@ -14,29 +14,30 @@ internal class SwitchView: UIView {
     private var label: UILabel!
     private var switcher: UISwitch!
     
-    private let switchedSubject = PublishSubject<Bool>()
-    internal var switchedTrigger: Driver<Bool> {
-        return switchedSubject.asDriver(onErrorDriveWith: Driver.empty())
-    }
+    private let store: NestedSwitchDataStore
     
     private let disposeBag = DisposeBag()
     private let viewModel = SwitchViewViewModel()
-    internal init(text: String?, backgroundColor: UIColor?, switchTriggerFromParent: Driver<Bool>){
+    internal init(store: NestedSwitchDataStore, text: String?, backgroundColor: UIColor?, stateChangedFromStore: Driver<Bool>, isOnAction: NestedSwitchAction, isOffAction: NestedSwitchAction){
+        self.store = store
         super.init(frame: CGRect.zero)
         setupUI(text: text, backgroundColor: backgroundColor)
-        bindViewModel(switchTriggerFromParent: switchTriggerFromParent)
+        bindViewModel(stateChangedFromStore: stateChangedFromStore, isOnAction: isOnAction, isOffAction: isOffAction)
     }
     
-    private func bindViewModel(switchTriggerFromParent: Driver<Bool>){
+    private func bindViewModel(stateChangedFromStore: Driver<Bool>, isOnAction: NestedSwitchAction, isOffAction: NestedSwitchAction){
         let input = SwitchViewViewModel.Input(
             tapTrigger: switcher.rx.isOn.asDriver(),
-            switchTriggerFromParent: switchTriggerFromParent
+            stateChangedFromStore: stateChangedFromStore
         )
         let output = viewModel.transform(input: input)
         output.isOnDriver.drive(onNext: { (isOn) in
             self.switcher.setOn(isOn, animated: true)
         }).disposed(by: disposeBag)
-        output.notifyParent.drive(switchedSubject).disposed(by: disposeBag)
+        output.notifyStoreOfStateChange.drive(onNext: { isOn in
+            let action = isOn ? isOnAction : isOffAction
+            self.store.dispatch(action: action)
+        }).disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {

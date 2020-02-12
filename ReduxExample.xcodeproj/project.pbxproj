@@ -27,6 +27,10 @@
 		E58C460823E4428B002EF05E /* TemplateState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460723E4428B002EF05E /* TemplateState.swift */; };
 		E58C460A23E444B1002EF05E /* TemplateDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460923E444B1002EF05E /* TemplateDataStore.swift */; };
 		E58C460C23E4474C002EF05E /* TemplateMiddlewares.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460B23E4474C002EF05E /* TemplateMiddlewares.swift */; };
+		E5A2525123F412D500165339 /* NesedSwitchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2525023F412D500165339 /* NesedSwitchAction.swift */; };
+		E5A2525323F4133600165339 /* NestedSwitchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2525223F4133600165339 /* NestedSwitchState.swift */; };
+		E5A2525523F413E800165339 /* NestedSwitchDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2525423F413E800165339 /* NestedSwitchDataStore.swift */; };
+		E5A2525723F4142400165339 /* NestedSwitchStateMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2525623F4142400165339 /* NestedSwitchStateMutator.swift */; };
 		E5E5463223E3F74800286C95 /* ExampleUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463123E3F74800286C95 /* ExampleUsage.swift */; };
 		E5E5463423E3F7A700286C95 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463323E3F7A700286C95 /* DataStore.swift */; };
 		E5E5463623E3F7D400286C95 /* CounterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463523E3F7D400286C95 /* CounterDataStore.swift */; };
@@ -76,6 +80,10 @@
 		E58C460723E4428B002EF05E /* TemplateState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateState.swift; sourceTree = "<group>"; };
 		E58C460923E444B1002EF05E /* TemplateDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDataStore.swift; sourceTree = "<group>"; };
 		E58C460B23E4474C002EF05E /* TemplateMiddlewares.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateMiddlewares.swift; sourceTree = "<group>"; };
+		E5A2525023F412D500165339 /* NesedSwitchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NesedSwitchAction.swift; sourceTree = "<group>"; };
+		E5A2525223F4133600165339 /* NestedSwitchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedSwitchState.swift; sourceTree = "<group>"; };
+		E5A2525423F413E800165339 /* NestedSwitchDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedSwitchDataStore.swift; sourceTree = "<group>"; };
+		E5A2525623F4142400165339 /* NestedSwitchStateMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedSwitchStateMutator.swift; sourceTree = "<group>"; };
 		E5E5463123E3F74800286C95 /* ExampleUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUsage.swift; sourceTree = "<group>"; };
 		E5E5463323E3F7A700286C95 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		E5E5463523E3F7D400286C95 /* CounterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterDataStore.swift; sourceTree = "<group>"; };
@@ -144,12 +152,24 @@
 		E55C4AE923F3C59E00B91DD2 /* NestedSwitchExample */ = {
 			isa = PBXGroup;
 			children = (
+				E5A2524F23F411A700165339 /* NestedSwitchRedux */,
 				E55C4AEA23F3C5C800B91DD2 /* RootViewController.swift */,
 				E55C4AF023F3E78600B91DD2 /* RootViewModel.swift */,
 				E55C4AEE23F3E26A00B91DD2 /* SwitchViewViewModel.swift */,
 				E55C4AEC23F3E23F00B91DD2 /* SwitchView.swift */,
 			);
 			path = NestedSwitchExample;
+			sourceTree = "<group>";
+		};
+		E5A2524F23F411A700165339 /* NestedSwitchRedux */ = {
+			isa = PBXGroup;
+			children = (
+				E5A2525023F412D500165339 /* NesedSwitchAction.swift */,
+				E5A2525223F4133600165339 /* NestedSwitchState.swift */,
+				E5A2525423F413E800165339 /* NestedSwitchDataStore.swift */,
+				E5A2525623F4142400165339 /* NestedSwitchStateMutator.swift */,
+			);
+			path = NestedSwitchRedux;
 			sourceTree = "<group>";
 		};
 		E5F0CA9D23E2A7E2004738D3 = {
@@ -460,6 +480,7 @@
 				E56B847023F17362009646E3 /* CounterViewController.swift in Sources */,
 				E55C4AEF23F3E26A00B91DD2 /* SwitchViewViewModel.swift in Sources */,
 				E5E5463423E3F7A700286C95 /* DataStore.swift in Sources */,
+				E5A2525323F4133600165339 /* NestedSwitchState.swift in Sources */,
 				E58C460C23E4474C002EF05E /* TemplateMiddlewares.swift in Sources */,
 				E5E5463823E3F82100286C95 /* CounterState.swift in Sources */,
 				E55C4AED23F3E23F00B91DD2 /* SwitchView.swift in Sources */,
@@ -469,9 +490,12 @@
 				E5EBC26123E9828C004B3F22 /* ObservableType+Extensions.swift in Sources */,
 				E55C4AEB23F3C5C800B91DD2 /* RootViewController.swift in Sources */,
 				E54D2EF023F17AA2004FB8EC /* CounterViewModel.swift in Sources */,
+				E5A2525123F412D500165339 /* NesedSwitchAction.swift in Sources */,
 				E56FE1E223F25D6A0029E9C7 /* CounterStateMutator.swift in Sources */,
 				E58C460823E4428B002EF05E /* TemplateState.swift in Sources */,
+				E5A2525723F4142400165339 /* NestedSwitchStateMutator.swift in Sources */,
 				E5E5463E23E4034200286C95 /* ExampleMiddlewares.swift in Sources */,
+				E5A2525523F413E800165339 /* NestedSwitchDataStore.swift in Sources */,
 				E5E5463C23E4032200286C95 /* Middleware.swift in Sources */,
 				E56FE1E423F279EA0029E9C7 /* BaseDataStore.swift in Sources */,
 				E5E5463223E3F74800286C95 /* ExampleUsage.swift in Sources */,

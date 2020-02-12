@@ -16,22 +16,8 @@ internal class RootViewController: UIViewController {
     private var product2Switch: SwitchView!
     private var footerPriceLabel: UILabel!
     
-    private let topSwitchShouldSwitchSubject = PublishSubject<Bool>()
-    private var topSwitchShouldSwitchTrigger: Driver<Bool> {
-        return topSwitchShouldSwitchSubject.asDriver(onErrorDriveWith: Driver.empty())
-    }
-    
-    private let product1ShouldSwitchSubject = PublishSubject<Bool>()
-    private var product1ShouldSwitchTrigger: Driver<Bool> {
-        return product1ShouldSwitchSubject.asDriver(onErrorDriveWith: Driver.empty())
-    }
-    
-    private let product2ShouldSwitchSubject = PublishSubject<Bool>()
-    private var product2ShouldSwitchTrigger: Driver<Bool> {
-        return product2ShouldSwitchSubject.asDriver(onErrorDriveWith: Driver.empty())
-    }
-    
     private let viewModel = RootViewModel()
+    private let store = NestedSwitchDataStore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +28,9 @@ internal class RootViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private func bindViewModel(){
         let input = RootViewModel.Input(
-            topSwitchTrigger: topSwitch.switchedTrigger,
-            product1SwitchTrigger: product1Switch.switchedTrigger,
-            product2SwitchTrigger: product2Switch.switchedTrigger
+            totalPriceStateChanged: store.listenTo(state: \NestedSwitchState.totalPrice).asDriver(onErrorDriveWith: Driver.empty())
         )
         let output = viewModel.transform(input: input)
-        output.topSwitchTrigger.drive(topSwitchShouldSwitchSubject).disposed(by: disposeBag)
-        output.product1SwitchTrigger.drive(product1ShouldSwitchSubject).disposed(by: disposeBag)
-        output.product2SwitchTrigger.drive(product2ShouldSwitchSubject).disposed(by: disposeBag)
         output.footerPriceDriver.drive(footerPriceLabel.rx.text).disposed(by: disposeBag)
     }
     
@@ -62,18 +43,39 @@ internal class RootViewController: UIViewController {
     }
     
     private func setupTopSwitch(topAnchor: NSLayoutYAxisAnchor){
-        let view = SwitchView(text: "Pilih semua produk", backgroundColor: .cyan, switchTriggerFromParent: topSwitchShouldSwitchTrigger)
+        let view = SwitchView(
+            store: store,
+            text: "Pilih semua produk",
+            backgroundColor: .cyan,
+            stateChangedFromStore: store.listenTo(state: \NestedSwitchState.topSwitchIsOn).asDriver(onErrorDriveWith: Driver.empty()),
+            isOnAction: .chooseAllProducts,
+            isOffAction: .turnOffAllProducts
+        )
         self.topSwitch = view
         setSwitcherUI(switcher: view, topAnchor: topAnchor)
     }
     
     private func setupProduct1Switch(topAnchor: NSLayoutYAxisAnchor){
-        let view = SwitchView(text: "Produk 1", backgroundColor: .lightGray, switchTriggerFromParent: product1ShouldSwitchTrigger)
+        let view = SwitchView(
+            store: store,
+            text: "Produk 1",
+            backgroundColor: .lightGray,
+            stateChangedFromStore: store.listenTo(state: \NestedSwitchState.product1SwitchIsOn).asDriver(onErrorDriveWith: Driver.empty()),
+            isOnAction: .chooseProduct1,
+            isOffAction: .turnOffProduct1
+        )
         self.product1Switch = view
         setSwitcherUI(switcher: view, topAnchor: topAnchor)
     }
     private func setupProduct2Switch(topAnchor: NSLayoutYAxisAnchor){
-        let view = SwitchView(text: "Produk 2", backgroundColor: .lightGray, switchTriggerFromParent: product2ShouldSwitchTrigger)
+        let view = SwitchView(
+            store: store,
+            text: "Produk 2",
+            backgroundColor: .lightGray,
+            stateChangedFromStore: store.listenTo(state: \NestedSwitchState.product2SwitchIsOn).asDriver(onErrorDriveWith: Driver.empty()),
+            isOnAction: .chooseProduct2,
+            isOffAction: .turnOffProduct2
+        )
         self.product2Switch = view
         setSwitcherUI(switcher: view, topAnchor: topAnchor)
     }
