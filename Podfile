@@ -12,6 +12,8 @@ target 'ReduxExample' do
   target 'ReduxExampleTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RxSwift', '~> 4.5.0'
+    pod 'RxCocoa', '~> 4.5.0'
   end
 
 end

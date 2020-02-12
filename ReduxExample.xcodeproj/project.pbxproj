@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B604BB13D6A70C4E36A8FCA /* Pods_ReduxExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577C95FA9A5309ED0FA437D6 /* Pods_ReduxExample.framework */; };
+		A3655C2871B8083B0810FA3D /* Pods_ReduxExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FF1EEB6EA21811EDD007BB /* Pods_ReduxExampleTests.framework */; };
 		E5029B4723F2828600A4F669 /* ReduxExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5029B4623F2828600A4F669 /* ReduxExampleTests.swift */; };
 		E5387C5823E93D250073C0D1 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5387C5723E93D250073C0D1 /* Action.swift */; };
 		E54D2EF023F17AA2004FB8EC /* CounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */; };
@@ -86,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3655C2871B8083B0810FA3D /* Pods_ReduxExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,9 +229,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5029B4B23F2828600A4F669 /* Build configuration list for PBXNativeTarget "ReduxExampleTests" */;
 			buildPhases = (
+				5AC58D64D9A46769F8DDA4C0 /* [CP] Check Pods Manifest.lock */,
 				E5029B4023F2828600A4F669 /* Sources */,
 				E5029B4123F2828600A4F669 /* Frameworks */,
 				E5029B4223F2828600A4F669 /* Resources */,
+				339564596584C3562A2E2C34 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,6 +322,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		339564596584C3562A2E2C34 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ReduxExampleTests/Pods-ReduxExampleTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReduxExampleTests/Pods-ReduxExampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AC58D64D9A46769F8DDA4C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReduxExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		73B626182C32EF161C1CF668 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,6 +466,7 @@
 /* Begin XCBuildConfiguration section */
 		E5029B4C23F2828600A4F669 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01776984BDECE16D69BDAB93 /* Pods-ReduxExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -435,6 +486,7 @@
 		};
 		E5029B4D23F2828600A4F669 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 512F8D747857752805A4D443 /* Pods-ReduxExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
