@@ -77,8 +77,6 @@
 		E5F0CAAF23E2A7E3004738D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5F0CAB223E2A7E3004738D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5F0CAB723E2A7E3004738D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5F0CAC023E2A7E3004738D3 /* ReduxExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxExampleTests.swift; sourceTree = "<group>"; };
-		E5F0CAC223E2A7E3004738D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5F0CAD523E2C386004738D3 /* CounterAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterAction.swift; sourceTree = "<group>"; };
 		EBFA7440E09D72A5D739D565 /* Pods-ReduxExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReduxExample/Pods-ReduxExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				E5F0CAA823E2A7E2004738D3 /* ReduxExample */,
-				E5F0CABF23E2A7E3004738D3 /* ReduxExampleTests */,
 				E5029B4523F2828600A4F669 /* ReduxExampleTests */,
 				E5F0CAA723E2A7E2004738D3 /* Products */,
 				0C227E93B0F1B63CAF7B6908 /* Pods */,
@@ -172,15 +169,6 @@
 				E5F0CAB223E2A7E3004738D3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		E5F0CABF23E2A7E3004738D3 /* ReduxExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				E5F0CAC023E2A7E3004738D3 /* ReduxExampleTests.swift */,
-				E5F0CAC223E2A7E3004738D3 /* Info.plist */,
-			);
-			path = ReduxExampleTests;
 			sourceTree = "<group>";
 		};
 		E5F0CACD23E2C2F4004738D3 /* Redux */ = {
