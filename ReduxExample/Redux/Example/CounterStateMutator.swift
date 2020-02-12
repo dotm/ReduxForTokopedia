@@ -11,9 +11,9 @@ import Foundation
 public class CounterStateMutator: Mutator {
     public typealias DataStoreState = CounterState
     public typealias DataStoreAction = CounterAction
-    
+
     private var mutableState: DataStoreState!
-    
+
     public func mutate(state: DataStoreState, with action: DataStoreAction) -> DataStoreState {
         mutableState = state
         switch action {

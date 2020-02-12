@@ -15,15 +15,15 @@ public class CounterDataStore: BaseDataStore<CounterState, CounterAction, Counte
         let initialState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
         super.init(stateRelay: BehaviorRelay(value: initialState), mutableState: initialState, mutator: CounterStateMutator())
     }
-    
+
     // All the functions defined for the DataStore protocol is implemented in BaseDateStore
 
     // Add, remove, and comment out middlewares here
     private var middlewares: [Middleware] = [
-        //LoggingMiddleware(),
+        // LoggingMiddleware(),
         AllowSetToZeroOnly(),
     ]
-    
+
     // MARK: Custom Store Properties and Functions
 
     // You don't have to implement any extra functions if you don't need to

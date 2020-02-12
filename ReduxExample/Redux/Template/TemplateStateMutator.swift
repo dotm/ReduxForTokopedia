@@ -8,12 +8,12 @@
 
 import Foundation
 
-//extension <#ModuleName#>StateMutator: Mutator {
+// extension <#ModuleName#>StateMutator: Mutator {
 //    public typealias DataStoreState = <#ModuleName#>State
 //    public typealias DataStoreAction = <#ModuleName#>Action
-//   
+//
 //    private var mutableState: DataStoreState!
-//    
+//
 //    public func mutate(state: DataStoreState, with action: DataStoreAction) -> DataStoreState {
 //        mutableState = state
 //        switch action {
@@ -38,4 +38,4 @@ import Foundation
 //   private func perActionMutator(arg _: Type, arg _: Type) {
 //       // mutate mutableState here
 //   }
-//}
+// }
