@@ -18,25 +18,12 @@
 //
 //    // a state can contain another struct (delete this if you don't need this)
 //    public var nestedState: ExampleNestedState
-//
-//    // You can generate init automatically using
-//    // - the init generator in Tokopedia XCode extension https://github.com/tokopedia/xcode-helper
-//    // - the built-in Xcode generator of memberwise initializer
-//    public init(<#stateName1#>: <#StateType1#>, <#stateName2#>: <#StateType2#>, nestedState: ExampleNestedState) {
-//        self.<#stateName1#> = <#stateName1#>
-//        self.<#stateName2#> = <#stateName2#>
-//        self.nestedState = nestedState
-//    }
 // }
 //
 ///// Example nested state
 // public struct ExampleNestedState: Equatable {
 //    public var firstProperty: Int = 1
 //    public var secondProperty: Int = 2
-//
-//    // If you don't need to initialize anything
-//    // you still need to create an empty init
-//    public init() {}
 // }
 //
 //// Make nested state printable from print function.

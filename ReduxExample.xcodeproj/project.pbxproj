@@ -12,6 +12,7 @@
 		E5029B4723F2828600A4F669 /* ReduxExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5029B4623F2828600A4F669 /* ReduxExampleTests.swift */; };
 		E5387C5823E93D250073C0D1 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5387C5723E93D250073C0D1 /* Action.swift */; };
 		E54D2EF023F17AA2004FB8EC /* CounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */; };
+		E55C4AE823F3A27900B91DD2 /* TemplateStateMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AE723F3A27900B91DD2 /* TemplateStateMutator.swift */; };
 		E56B847023F17362009646E3 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56B846F23F17362009646E3 /* CounterViewController.swift */; };
 		E56FE1E223F25D6A0029E9C7 /* CounterStateMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E123F25D6A0029E9C7 /* CounterStateMutator.swift */; };
 		E56FE1E423F279EA0029E9C7 /* BaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E323F279EA0029E9C7 /* BaseDataStore.swift */; };
@@ -56,6 +57,7 @@
 		E5029B4823F2828600A4F669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5387C5723E93D250073C0D1 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewModel.swift; sourceTree = "<group>"; };
+		E55C4AE723F3A27900B91DD2 /* TemplateStateMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateStateMutator.swift; sourceTree = "<group>"; };
 		E56B846F23F17362009646E3 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		E56FE1E123F25D6A0029E9C7 /* CounterStateMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterStateMutator.swift; sourceTree = "<group>"; };
 		E56FE1E323F279EA0029E9C7 /* BaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataStore.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				E58C460723E4428B002EF05E /* TemplateState.swift */,
+				E55C4AE723F3A27900B91DD2 /* TemplateStateMutator.swift */,
 				E58C460323E4407E002EF05E /* TemplateAction.swift */,
 				E58C460923E444B1002EF05E /* TemplateDataStore.swift */,
 				E58C460B23E4474C002EF05E /* TemplateMiddlewares.swift */,
@@ -449,6 +452,7 @@
 				E56FE1E423F279EA0029E9C7 /* BaseDataStore.swift in Sources */,
 				E5E5463223E3F74800286C95 /* ExampleUsage.swift in Sources */,
 				E5E5463623E3F7D400286C95 /* CounterDataStore.swift in Sources */,
+				E55C4AE823F3A27900B91DD2 /* TemplateStateMutator.swift in Sources */,
 				E58C460A23E444B1002EF05E /* TemplateDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
