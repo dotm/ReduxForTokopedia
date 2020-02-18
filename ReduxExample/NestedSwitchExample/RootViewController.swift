@@ -43,7 +43,7 @@ internal class RootViewController: UIViewController {
     private func setupTopSwitch(topAnchor: NSLayoutYAxisAnchor){
         let view = SwitchView(
             store: store,
-            text: "Pilih semua produk",
+            text: "Choose all products",
             backgroundColor: .cyan,
             stateChangedFromStore: store.listenTo(state: \NestedSwitchState.topSwitchIsOn).asDriver(onErrorDriveWith: Driver.empty()),
             isOnAction: .chooseAllProducts,
@@ -56,7 +56,7 @@ internal class RootViewController: UIViewController {
     private func setupProduct1Switch(topAnchor: NSLayoutYAxisAnchor){
         let view = SwitchView(
             store: store,
-            text: "Produk 1",
+            text: "Product 1",
             backgroundColor: .lightGray,
             stateChangedFromStore: store.listenTo(state: \NestedSwitchState.product1SwitchIsOn).asDriver(onErrorDriveWith: Driver.empty()),
             isOnAction: .chooseProduct1,
@@ -68,7 +68,7 @@ internal class RootViewController: UIViewController {
     private func setupProduct2Switch(topAnchor: NSLayoutYAxisAnchor){
         let view = SwitchView(
             store: store,
-            text: "Produk 2",
+            text: "Product 2",
             backgroundColor: .lightGray,
             stateChangedFromStore: store.listenTo(state: \NestedSwitchState.product2SwitchIsOn).asDriver(onErrorDriveWith: Driver.empty()),
             isOnAction: .chooseProduct2,
