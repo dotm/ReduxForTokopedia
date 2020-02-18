@@ -13,7 +13,7 @@
 //// return nil from a middleware
 //
 ///// Example Redux middleware that can be used by any action
-// internal struct <#MiddlewareName#>Middleware: Middleware {
+//internal struct <#MiddlewareName#>Middleware: Middleware {
 //    func apply<Action>(with action: Action?) -> Action? {
 //        guard let action = action else { return nil }
 //
@@ -23,10 +23,10 @@
 //
 //        return action // or return nil to stop action propagation
 //    }
-// }
+//}
 //
 ///// Example Redux middleware that can be used by a specific action
-// internal struct AllowSetToZeroOnly: Middleware {
+//internal struct AllowSetToZeroOnly: Middleware {
 //    func apply(with action: Action?) -> Action? {
 //        guard let specificAction = convertType(of: action, to: <#ModuleName#>Action.self) else { return action }
 //
@@ -40,4 +40,4 @@
 //
 //        return action // or return nil to stop action propagation
 //    }
-// }
+//}

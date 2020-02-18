@@ -6,9 +6,9 @@
 //  Copyright © 2020 Tokopedia. All rights reserved.
 //
 
-import Foundation
+/* Copy the lines below and then uncomment them to use the template. */
 
-// extension <#ModuleName#>StateReducer: Reducer {
+//extension <#ModuleName#>StateReducer: Reducer {
 //    public typealias DataStoreState = <#ModuleName#>State
 //    public typealias DataStoreAction = <#ModuleName#>Action
 //
@@ -25,17 +25,17 @@ import Foundation
 //        return internalState
 //    }
 //
-//   // MARK: Per-Action Reducers
+//    // MARK: Per-Action Reducers
 //
-//   private func <#ActionName#>ActionReducer() {
+//    private func <#ActionName#>ActionReducer() {
 //       // reduce internalState here
-//   }
+//    }
 //
-//   private func perActionReducer() {
+//    private func perActionReducer() {
 //       // reduce internalState here
-//   }
+//    }
 //
-//   private func perActionReducer(arg _: Type, arg _: Type) {
+//    private func perActionReducer(arg _: Type, arg _: Type) {
 //       // reduce internalState here
-//   }
-// }
+//    }
+//}

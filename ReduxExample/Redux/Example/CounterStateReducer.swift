@@ -6,8 +6,6 @@
 //  Copyright © 2020 Tokopedia. All rights reserved.
 //
 
-import Foundation
-
 public class CounterStateReducer: Reducer {
     public typealias DataStoreState = CounterState
     public typealias DataStoreAction = CounterAction

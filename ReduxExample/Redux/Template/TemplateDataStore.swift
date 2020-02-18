@@ -8,11 +8,11 @@
 
 /* Copy the lines below and then uncomment them to use the template. */
 
-// import RxCocoa
-// import RxSwift
+//import RxCocoa
+//import RxSwift
 //
 ///// Data store for <#ModuleName#>
-// public class <#ModuleName#>DataStore: BaseDataStore<<#ModuleName#>State, <#ModuleName#>Action, <#ModuleName#>StateReducer> {
+//public class <#ModuleName#>DataStore: BaseDataStore<<#ModuleName#>State, <#ModuleName#>Action, <#ModuleName#>StateReducer> {
 //
 //    // MARK: Public Interface
 //
@@ -31,4 +31,4 @@
 //    // You don't have to implement any extra properties or functions if you don't need to
 //    // Any custom store function must NOT reduce internalState
 //    // The only functions that are allowed to change internalState are reducers
-// }
+//}
