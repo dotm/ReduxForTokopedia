@@ -27,9 +27,7 @@ internal class RootViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     private func bindViewModel(){
-        let input = RootViewModel.Input(
-            totalPriceStateChanged: store.listenTo(state: \NestedSwitchState.totalPrice).asDriver(onErrorDriveWith: Driver.empty())
-        )
+        let input = RootViewModel.Input(totalPriceStateChanged: store.listenTo(state: \NestedSwitchState.totalPrice).asDriver(onErrorDriveWith: Driver.empty()))
         let output = viewModel.transform(input: input)
         output.footerPriceDriver.drive(footerPriceLabel.rx.text).disposed(by: disposeBag)
     }

@@ -13,5 +13,20 @@ public struct NestedSwitchState: Equatable {
     public var topSwitchIsOn: Bool
     public var product1SwitchIsOn: Bool
     public var product2SwitchIsOn: Bool
-    public var totalPrice: Int
+    
+    public var totalPrice: Int {
+        let product1Price = 10000
+        let product2Price = 8000
+        var price = 0
+        
+        if product1SwitchIsOn {
+            price += product1Price
+        }
+        
+        if product2SwitchIsOn {
+            price += product2Price
+        }
+        
+        return price
+    }
 }

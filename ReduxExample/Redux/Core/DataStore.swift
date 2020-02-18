@@ -33,11 +33,11 @@ public protocol DataStore {
     /// Subscribe to changes in data store's state.
     /// Use keypath from the state object to access the state.
     /// For example: listenTo(state: \ExampleState.property.property)
-    func listenTo<T: Equatable>(state keyPath: WritableKeyPath<DataStoreState, T>) -> Observable<T>
+    func listenTo<T: Equatable>(state keyPath: KeyPath<DataStoreState, T>) -> Observable<T>
 }
 
 extension DataStore {
-    public func listenTo<T: Equatable>(state keyPath: WritableKeyPath<DataStoreState, T>) -> Observable<T> {
+    public func listenTo<T: Equatable>(state keyPath: KeyPath<DataStoreState, T>) -> Observable<T> {
         return observeState.of(property: keyPath)
     }
 }

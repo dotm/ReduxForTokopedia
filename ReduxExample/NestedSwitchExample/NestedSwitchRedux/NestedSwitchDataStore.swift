@@ -11,7 +11,7 @@ import RxSwift
 
 public class NestedSwitchDataStore: BaseDataStore<NestedSwitchState, NestedSwitchAction, NestedSwitchStateMutator> {
     public override init() { // made public to be accessible from other modules
-        let initialState = NestedSwitchState(topSwitchIsOn: false, product1SwitchIsOn: false, product2SwitchIsOn: false, totalPrice: 0)
+        let initialState = NestedSwitchState(topSwitchIsOn: false, product1SwitchIsOn: false, product2SwitchIsOn: false)
         super.init(stateRelay: BehaviorRelay(value: initialState), mutableState: initialState, mutator: NestedSwitchStateMutator())
     }
 
