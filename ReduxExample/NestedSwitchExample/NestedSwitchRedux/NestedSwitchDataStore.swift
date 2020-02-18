@@ -9,10 +9,10 @@
 import RxCocoa
 import RxSwift
 
-public class NestedSwitchDataStore: BaseDataStore<NestedSwitchState, NestedSwitchAction, NestedSwitchStateMutator> {
+public class NestedSwitchDataStore: BaseDataStore<NestedSwitchState, NestedSwitchAction, NestedSwitchStateReducer> {
     public override init() { // made public to be accessible from other modules
         let initialState = NestedSwitchState(topSwitchIsOn: false, product1SwitchIsOn: false, product2SwitchIsOn: false)
-        super.init(stateRelay: BehaviorRelay(value: initialState), mutableState: initialState, mutator: NestedSwitchStateMutator())
+        super.init(stateRelay: BehaviorRelay(value: initialState), internalState: initialState, reducer: NestedSwitchStateReducer())
     }
 
     // All the functions defined for the DataStore protocol is implemented in BaseDateStore
@@ -26,10 +26,6 @@ public class NestedSwitchDataStore: BaseDataStore<NestedSwitchState, NestedSwitc
     // MARK: Custom Store Properties and Functions
 
     // You don't have to implement any extra functions if you don't need to
-    // Any custom store function must NOT mutate mutableState
-    // The only functions that are allowed to change mutableState are mutators
-    public func printValue() {
-        print("accessing state here is OK:", state)
-        print("mutating state here is NOT OK! Example: mutableState = newState")
-    }
+    // Any custom store function must NOT reduce internalState
+    // The only functions that are allowed to change internalState are reducers
 }

@@ -12,15 +12,15 @@
 		E5029B4723F2828600A4F669 /* ReduxExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5029B4623F2828600A4F669 /* ReduxExampleTests.swift */; };
 		E5387C5823E93D250073C0D1 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5387C5723E93D250073C0D1 /* Action.swift */; };
 		E54D2EF023F17AA2004FB8EC /* CounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */; };
-		E55C4AE823F3A27900B91DD2 /* TemplateStateMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AE723F3A27900B91DD2 /* TemplateStateMutator.swift */; };
+		E55C4AE823F3A27900B91DD2 /* TemplateStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AE723F3A27900B91DD2 /* TemplateStateReducer.swift */; };
 		E55C4AEB23F3C5C800B91DD2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AEA23F3C5C800B91DD2 /* RootViewController.swift */; };
 		E55C4AED23F3E23F00B91DD2 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AEC23F3E23F00B91DD2 /* SwitchView.swift */; };
 		E55C4AEF23F3E26A00B91DD2 /* SwitchViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AEE23F3E26A00B91DD2 /* SwitchViewViewModel.swift */; };
 		E55C4AF123F3E78600B91DD2 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C4AF023F3E78600B91DD2 /* RootViewModel.swift */; };
 		E56B847023F17362009646E3 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56B846F23F17362009646E3 /* CounterViewController.swift */; };
-		E56FE1E223F25D6A0029E9C7 /* CounterStateMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E123F25D6A0029E9C7 /* CounterStateMutator.swift */; };
+		E56FE1E223F25D6A0029E9C7 /* CounterStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E123F25D6A0029E9C7 /* CounterStateReducer.swift */; };
 		E56FE1E423F279EA0029E9C7 /* BaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E323F279EA0029E9C7 /* BaseDataStore.swift */; };
-		E56FE1E623F27DD90029E9C7 /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E523F27DD90029E9C7 /* Mutator.swift */; };
+		E56FE1E623F27DD90029E9C7 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56FE1E523F27DD90029E9C7 /* Reducer.swift */; };
 		E58C460223E43F22002EF05E /* README_First.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460123E43F22002EF05E /* README_First.swift */; };
 		E58C460423E4407E002EF05E /* TemplateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460323E4407E002EF05E /* TemplateAction.swift */; };
 		E58C460623E4419B002EF05E /* README_Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58C460523E4419B002EF05E /* README_Template.swift */; };
@@ -30,7 +30,7 @@
 		E5A2525123F412D500165339 /* NesedSwitchAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2525023F412D500165339 /* NesedSwitchAction.swift */; };
 		E5A2525323F4133600165339 /* NestedSwitchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2525223F4133600165339 /* NestedSwitchState.swift */; };
 		E5A2525523F413E800165339 /* NestedSwitchDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2525423F413E800165339 /* NestedSwitchDataStore.swift */; };
-		E5A2525723F4142400165339 /* NestedSwitchStateMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2525623F4142400165339 /* NestedSwitchStateMutator.swift */; };
+		E5A2525723F4142400165339 /* NestedSwitchStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2525623F4142400165339 /* NestedSwitchStateReducer.swift */; };
 		E5E5463223E3F74800286C95 /* ExampleUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463123E3F74800286C95 /* ExampleUsage.swift */; };
 		E5E5463423E3F7A700286C95 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463323E3F7A700286C95 /* DataStore.swift */; };
 		E5E5463623E3F7D400286C95 /* CounterDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5463523E3F7D400286C95 /* CounterDataStore.swift */; };
@@ -65,15 +65,15 @@
 		E5029B4823F2828600A4F669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5387C5723E93D250073C0D1 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		E54D2EEF23F17AA2004FB8EC /* CounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewModel.swift; sourceTree = "<group>"; };
-		E55C4AE723F3A27900B91DD2 /* TemplateStateMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateStateMutator.swift; sourceTree = "<group>"; };
+		E55C4AE723F3A27900B91DD2 /* TemplateStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateStateReducer.swift; sourceTree = "<group>"; };
 		E55C4AEA23F3C5C800B91DD2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		E55C4AEC23F3E23F00B91DD2 /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
 		E55C4AEE23F3E26A00B91DD2 /* SwitchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewViewModel.swift; sourceTree = "<group>"; };
 		E55C4AF023F3E78600B91DD2 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		E56B846F23F17362009646E3 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
-		E56FE1E123F25D6A0029E9C7 /* CounterStateMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterStateMutator.swift; sourceTree = "<group>"; };
+		E56FE1E123F25D6A0029E9C7 /* CounterStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterStateReducer.swift; sourceTree = "<group>"; };
 		E56FE1E323F279EA0029E9C7 /* BaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataStore.swift; sourceTree = "<group>"; };
-		E56FE1E523F27DD90029E9C7 /* Mutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutator.swift; sourceTree = "<group>"; };
+		E56FE1E523F27DD90029E9C7 /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		E58C460123E43F22002EF05E /* README_First.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = README_First.swift; sourceTree = "<group>"; };
 		E58C460323E4407E002EF05E /* TemplateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateAction.swift; sourceTree = "<group>"; };
 		E58C460523E4419B002EF05E /* README_Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = README_Template.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		E5A2525023F412D500165339 /* NesedSwitchAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NesedSwitchAction.swift; sourceTree = "<group>"; };
 		E5A2525223F4133600165339 /* NestedSwitchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedSwitchState.swift; sourceTree = "<group>"; };
 		E5A2525423F413E800165339 /* NestedSwitchDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedSwitchDataStore.swift; sourceTree = "<group>"; };
-		E5A2525623F4142400165339 /* NestedSwitchStateMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedSwitchStateMutator.swift; sourceTree = "<group>"; };
+		E5A2525623F4142400165339 /* NestedSwitchStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedSwitchStateReducer.swift; sourceTree = "<group>"; };
 		E5E5463123E3F74800286C95 /* ExampleUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUsage.swift; sourceTree = "<group>"; };
 		E5E5463323E3F7A700286C95 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		E5E5463523E3F7D400286C95 /* CounterDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterDataStore.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 				E5A2525023F412D500165339 /* NesedSwitchAction.swift */,
 				E5A2525223F4133600165339 /* NestedSwitchState.swift */,
 				E5A2525423F413E800165339 /* NestedSwitchDataStore.swift */,
-				E5A2525623F4142400165339 /* NestedSwitchStateMutator.swift */,
+				E5A2525623F4142400165339 /* NestedSwitchStateReducer.swift */,
 			);
 			path = NestedSwitchRedux;
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 				E5387C5723E93D250073C0D1 /* Action.swift */,
 				E5E5463323E3F7A700286C95 /* DataStore.swift */,
 				E56FE1E323F279EA0029E9C7 /* BaseDataStore.swift */,
-				E56FE1E523F27DD90029E9C7 /* Mutator.swift */,
+				E56FE1E523F27DD90029E9C7 /* Reducer.swift */,
 				E5E5463B23E4032200286C95 /* Middleware.swift */,
 				E5EBC26023E9828C004B3F22 /* ObservableType+Extensions.swift */,
 			);
@@ -243,7 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				E58C460723E4428B002EF05E /* TemplateState.swift */,
-				E55C4AE723F3A27900B91DD2 /* TemplateStateMutator.swift */,
+				E55C4AE723F3A27900B91DD2 /* TemplateStateReducer.swift */,
 				E58C460323E4407E002EF05E /* TemplateAction.swift */,
 				E58C460923E444B1002EF05E /* TemplateDataStore.swift */,
 				E58C460B23E4474C002EF05E /* TemplateMiddlewares.swift */,
@@ -257,7 +257,7 @@
 			children = (
 				E5F0CAD523E2C386004738D3 /* CounterAction.swift */,
 				E5E5463523E3F7D400286C95 /* CounterDataStore.swift */,
-				E56FE1E123F25D6A0029E9C7 /* CounterStateMutator.swift */,
+				E56FE1E123F25D6A0029E9C7 /* CounterStateReducer.swift */,
 				E5E5463723E3F82100286C95 /* CounterState.swift */,
 				E5E5463123E3F74800286C95 /* ExampleUsage.swift */,
 				E5E5463D23E4034200286C95 /* ExampleMiddlewares.swift */,
@@ -476,7 +476,7 @@
 				E58C460223E43F22002EF05E /* README_First.swift in Sources */,
 				E55C4AF123F3E78600B91DD2 /* RootViewModel.swift in Sources */,
 				E58C460423E4407E002EF05E /* TemplateAction.swift in Sources */,
-				E56FE1E623F27DD90029E9C7 /* Mutator.swift in Sources */,
+				E56FE1E623F27DD90029E9C7 /* Reducer.swift in Sources */,
 				E56B847023F17362009646E3 /* CounterViewController.swift in Sources */,
 				E55C4AEF23F3E26A00B91DD2 /* SwitchViewViewModel.swift in Sources */,
 				E5E5463423E3F7A700286C95 /* DataStore.swift in Sources */,
@@ -491,16 +491,16 @@
 				E55C4AEB23F3C5C800B91DD2 /* RootViewController.swift in Sources */,
 				E54D2EF023F17AA2004FB8EC /* CounterViewModel.swift in Sources */,
 				E5A2525123F412D500165339 /* NesedSwitchAction.swift in Sources */,
-				E56FE1E223F25D6A0029E9C7 /* CounterStateMutator.swift in Sources */,
+				E56FE1E223F25D6A0029E9C7 /* CounterStateReducer.swift in Sources */,
 				E58C460823E4428B002EF05E /* TemplateState.swift in Sources */,
-				E5A2525723F4142400165339 /* NestedSwitchStateMutator.swift in Sources */,
+				E5A2525723F4142400165339 /* NestedSwitchStateReducer.swift in Sources */,
 				E5E5463E23E4034200286C95 /* ExampleMiddlewares.swift in Sources */,
 				E5A2525523F413E800165339 /* NestedSwitchDataStore.swift in Sources */,
 				E5E5463C23E4032200286C95 /* Middleware.swift in Sources */,
 				E56FE1E423F279EA0029E9C7 /* BaseDataStore.swift in Sources */,
 				E5E5463223E3F74800286C95 /* ExampleUsage.swift in Sources */,
 				E5E5463623E3F7D400286C95 /* CounterDataStore.swift in Sources */,
-				E55C4AE823F3A27900B91DD2 /* TemplateStateMutator.swift in Sources */,
+				E55C4AE823F3A27900B91DD2 /* TemplateStateReducer.swift in Sources */,
 				E58C460A23E444B1002EF05E /* TemplateDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  Mutator.swift
+//  Reducer.swift
 //  ReduxExample
 //
 //  Created by Yoshua Elmaryono on 11/02/20.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-public protocol Mutator {
+public protocol Reducer {
     associatedtype DataStoreState
     associatedtype DataStoreAction
-    func mutate(state: DataStoreState, with action: DataStoreAction) -> DataStoreState
+    func reduce(state: DataStoreState, with action: DataStoreAction) -> DataStoreState
 }

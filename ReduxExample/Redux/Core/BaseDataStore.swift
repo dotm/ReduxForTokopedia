@@ -12,7 +12,7 @@ import RxSwift
 
 /// A base class used to provide default implementation.
 /// You should not use this class directly. Use it's children instead.
-open class BaseDataStore<DataStoreState, DataStoreAction, DataStoreMutator> where DataStoreAction: Action, DataStoreMutator: Mutator, DataStoreMutator.DataStoreState == DataStoreState, DataStoreMutator.DataStoreAction == DataStoreAction {
+open class BaseDataStore<DataStoreState, DataStoreAction, DataStoreReducer> where DataStoreAction: Action, DataStoreReducer: Reducer, DataStoreReducer.DataStoreState == DataStoreState, DataStoreReducer.DataStoreAction == DataStoreAction {
     /// This init will raise fatal error because this class is not supposed to be instantiated.
     /// If you want to use super.init(), use the other init instead.
     public init() {
@@ -20,21 +20,21 @@ open class BaseDataStore<DataStoreState, DataStoreAction, DataStoreMutator> wher
     }
 
     /// Used for super.init call
-    public init(stateRelay: BehaviorRelay<DataStoreState>, mutableState: DataStoreState, mutator: DataStoreMutator) {
+    public init(stateRelay: BehaviorRelay<DataStoreState>, internalState: DataStoreState, reducer: DataStoreReducer) {
         self.stateRelay = stateRelay
-        self.mutableState = mutableState
-        self.mutator = mutator
+        self.internalState = internalState
+        self.reducer = reducer
     }
 
     // MARK: Private Members
 
-    // Mutable state can only be modified through the data store's dispatch function
-    private var mutableState: DataStoreState
+    // Internal state can only be modified through the data store's dispatch function
+    private var internalState: DataStoreState
 
     // Access this through DataStore.listenTo(state: keypath)
     private var stateRelay: BehaviorRelay<DataStoreState>
 
-    private var mutator: DataStoreMutator
+    private var reducer: DataStoreReducer
 
     private var middlewares: [Middleware] = []
 }
@@ -43,7 +43,7 @@ extension BaseDataStore: DataStore {
     // MARK: Public Interface that Conforms to DataStore Protocol
 
     public var state: DataStoreState { // read-only computed property accessed from other modules
-        return mutableState
+        return internalState
     }
 
     /// Access this through DataStore.listenTo(state: keypath)
@@ -53,7 +53,7 @@ extension BaseDataStore: DataStore {
 
     public func dispatch(action: DataStoreAction) {
         guard let action = applyMiddlewares(with: action) else { return }
-        mutateState(action: action)
+        reduceState(action: action)
         notifyStateChange()
     }
 }
@@ -71,9 +71,9 @@ extension BaseDataStore {
         return nullableAction as? DataStoreAction
     }
 
-    /// Entry-Point for Mutators (functions used to update the data store's state)
-    private func mutateState(action: DataStoreAction) {
-        mutableState = mutator.mutate(state: mutableState, with: action)
+    /// Entry-Point for Reducers (functions used to update the data store's state)
+    private func reduceState(action: DataStoreAction) {
+        internalState = reducer.reduce(state: internalState, with: action)
     }
 
     private func notifyStateChange() {
