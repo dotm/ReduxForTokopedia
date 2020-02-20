@@ -18,7 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = RootViewController()
         window?.makeKeyAndVisible()
         
+        //testMemoryLeak()
         return true
+    }
+    
+    func testMemoryLeak(){
+        for i in 0..<40 {
+            window?.rootViewController = i.isMultiple(of: 2) ? RootViewController() : CounterViewController()
+        }
     }
 }
 

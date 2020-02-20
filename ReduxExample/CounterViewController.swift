@@ -44,11 +44,11 @@ internal class CounterViewController: UIViewController {
             countChanged: store.listenTo(state: \CounterState.count).asDriver(onErrorDriveWith: Driver.empty())
         )
         let output = viewModel.transform(input: input)
-        output.dispatchAction.drive(onNext: { (action) in
-            self.store.dispatch(action: action)
+        output.dispatchAction.drive(onNext: { [weak self] action in
+            self?.store.dispatch(action: action)
         }).disposed(by: disposeBag)
-        output.counterTextDriver.drive(onNext: { (string) in
-            self.counterLabel.text = string
+        output.counterTextDriver.drive(onNext: { [weak self] string in
+            self?.counterLabel.text = string
         }).disposed(by: disposeBag)
     }
     

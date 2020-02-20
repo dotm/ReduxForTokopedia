@@ -31,12 +31,12 @@ internal class SwitchView: UIView {
             stateChangedFromStore: stateChangedFromStore
         )
         let output = viewModel.transform(input: input)
-        output.isOnDriver.drive(onNext: { (isOn) in
-            self.switcher.setOn(isOn, animated: true)
+        output.isOnDriver.drive(onNext: { [weak self] isOn in
+            self?.switcher.setOn(isOn, animated: true)
         }).disposed(by: disposeBag)
-        output.notifyStoreOfStateChange.drive(onNext: { isOn in
+        output.notifyStoreOfStateChange.drive(onNext: { [weak self] isOn in
             let action = isOn ? isOnAction : isOffAction
-            self.store.dispatch(action: action)
+            self?.store.dispatch(action: action)
         }).disposed(by: disposeBag)
     }
     
