@@ -3,7 +3,7 @@
 //  ReduxExample
 //
 //  Created by Yoshua Elmaryono on 12/02/20.
-//  Copyright © 2020 Tokopedia. All rights reserved.
+//  Copyright © 2020 Yoshua Elmaryono. All rights reserved.
 //
 
 import Foundation

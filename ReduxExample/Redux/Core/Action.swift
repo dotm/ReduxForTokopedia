@@ -3,7 +3,7 @@
 //  ReduxExample
 //
 //  Created by Yoshua Elmaryono on 30/01/20.
-//  Copyright © 2020 Tokopedia. All rights reserved.
+//  Copyright © 2020 Yoshua Elmaryono. All rights reserved.
 //
 
 /// Redux action used to modify a store's state object.
