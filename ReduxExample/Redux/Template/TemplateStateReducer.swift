@@ -28,14 +28,14 @@
 //    // MARK: Per-Action Reducers
 //
 //    private func <#ActionName#>ActionReducer() {
-//       // reduce internalState here
+//        // reduce internalState here
 //    }
 //
 //    private func perActionReducer() {
-//       // reduce internalState here
+//        // reduce internalState here
 //    }
 //
 //    private func perActionReducer(arg _: Type, arg _: Type) {
-//       // reduce internalState here
+//        // reduce internalState here
 //    }
 //}
