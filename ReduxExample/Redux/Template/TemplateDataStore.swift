@@ -16,8 +16,8 @@
 //
 //    // MARK: Public Interface
 //
-//    public init() { // made public to be accessible from other modules
-//        let initialState = <#ModuleName#>State()
+//    public override init() { // made public to be accessible from other modules
+//        let initialState = <#ModuleName#>State.initialState()
 //        super.init(stateRelay: BehaviorRelay(value: initialState), internalState: initialState, reducer: <#ModuleName#>StateReducer())
 //    }
 //

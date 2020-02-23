@@ -8,7 +8,7 @@
 
 /* Copy the lines below and then uncomment them to use the template. */
 
-//extension <#ModuleName#>StateReducer: Reducer {
+//public class <#ModuleName#>StateReducer: Reducer {
 //    public typealias DataStoreState = <#ModuleName#>State
 //    public typealias DataStoreAction = <#ModuleName#>Action
 //

@@ -8,7 +8,6 @@
 
 /* Copy the lines below and then uncomment them to use the template. */
 
-///// Example State
 //public struct <#ModuleName#>State: Equatable {
 //    // State must conform to Equatable.
 //    // State must be made public to be accessible from other modules.
@@ -18,6 +17,13 @@
 //
 //    // a state can contain another struct (delete this if you don't need this)
 //    public var nestedState: ExampleNestedState
+//}
+//
+//extension <#ModuleName#>State {
+//    //Used in data store's init 
+//    static func initialState() -> <#ModuleName#>State {
+//        return <#ModuleName#>State
+//    }
 //}
 //
 ///// Example nested state
