@@ -13,4 +13,6 @@
 //    // case example_action_with_argument(associatedValue: Type, associatedValue: Type)
 //    // case example_action_with_struct_as_argument(data: StructType)
 //    // case example_action_with_dynamic_dictionary_as_argument(metadata: [String:AnyHashable])
+//
+//    // Don't forget to add unit tests for new action
 //}

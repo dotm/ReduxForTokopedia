@@ -16,8 +16,13 @@
 //
 //    // MARK: Public Interface
 //
-//    public override init() { // made public to be accessible from other modules
+//    public convenience override init() { // made public to be accessible from other modules
 //        let initialState = <#ModuleName#>State.initialState()
+//        self.init(initialState: initialState)
+//    }
+//
+//    /// You can use this to customize initial state when unit testing
+//    public init(initialState: <#ModuleName#>State){
 //        super.init(stateRelay: BehaviorRelay(value: initialState), internalState: initialState, reducer: <#ModuleName#>StateReducer())
 //    }
 //

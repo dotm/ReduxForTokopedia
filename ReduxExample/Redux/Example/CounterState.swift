@@ -18,6 +18,16 @@ public struct CounterState: Equatable {
     public var nestedMetadata: NestedMetadata
 }
 
+extension CounterState {
+    internal static func initialState() -> Self {
+        CounterState(
+            count: 0,
+            lastChangedBy: "init",
+            nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0)
+        )
+    }
+}
+
 public struct NestedMetadata: Equatable {
     public var firstMetadata: Int
     public var secondMetadata: Int

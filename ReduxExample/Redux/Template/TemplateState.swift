@@ -21,8 +21,8 @@
 //
 //extension <#ModuleName#>State {
 //    //Used in data store's init 
-//    static func initialState() -> <#ModuleName#>State {
-//        return <#ModuleName#>State
+//    internal static func initialState() -> Self {
+//        <#ModuleName#>State()
 //    }
 //}
 //

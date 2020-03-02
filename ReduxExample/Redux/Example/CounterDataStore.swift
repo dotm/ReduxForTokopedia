@@ -11,8 +11,13 @@ import RxSwift
 
 /// Example Redux data store
 public class CounterDataStore: BaseDataStore<CounterState, CounterAction, CounterStateReducer> {
-    public override init() { // made public to be accessible from other modules
-        let initialState = CounterState(count: 0, lastChangedBy: "init", nestedMetadata: NestedMetadata(firstMetadata: 0, secondMetadata: 0))
+    public convenience override init() { // made public to be accessible from other modules
+        let initialState = CounterState.initialState()
+        self.init(initialState: initialState)
+    }
+
+    /// You can use this to customize initial state when unit testing
+    public init(initialState: CounterState){
         super.init(stateRelay: BehaviorRelay(value: initialState), internalState: initialState, reducer: CounterStateReducer())
     }
 
